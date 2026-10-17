@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#07111F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07111F; --ink2:#0D1D32; --ink3:#12263F; --line:rgba(168,183,203,.18); --line2:rgba(168,183,203,.30);
+  --blue:#3478FF; --blue-hi:#6EA2FF; --paper:#F5F7FB; --silver:#A8B7CB; --teal:#3FD1B8; --teal-ink:#0E7C6B;
+  --text:#EAF0F8; --muted:#A8B7CB; --ptext:#0B1A2E; --pmuted:#46566C;
+  --display:"Inter Tight","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --r:14px; --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--ink);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.04;font-weight:600;text-wrap:balance}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--paper);color:var(--ptext);padding:12px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--blue-hi);outline-offset:3px;border-radius:6px}
+.light :focus-visible{outline-color:#1D5BDB}
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(7,17,31,.86);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 21px/1 var(--display);letter-spacing:-.03em;min-height:44px}
+.logo svg{width:30px;height:30px}
+.logo .remo{color:var(--text)} .logo .blue{color:#4C8DFF}
+.light .logo .remo{color:#0B1A3A} .light .logo .blue{color:var(--blue)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--silver);text-decoration:none;font-size:15px;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:10px}
+.nav a:hover{color:var(--text);background:rgba(168,183,203,.08)}
+.header-cta{margin-left:8px}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border-radius:10px;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.mobile-menu{display:none}
+@media (max-width:920px){
+  .nav,.header-cta.desk{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-menu{border-top:1px solid var(--line);padding:8px 20px 20px}
+  .mobile-menu[data-open=true]{display:block}
+  .mobile-menu a:not(.btn){display:flex;align-items:center;min-height:48px;color:var(--text);text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:16px;width:100%}
+}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px -10px rgba(52,120,255,.7)}
+.btn-primary:hover{background:#2766E6}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--silver)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.light .btn-ghost{color:var(--ptext);border-color:rgba(11,26,46,.25)}
+/* labels */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-hi)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+.light .eyebrow{color:#1D5BDB}
+.tag-illus{display:inline-flex;align-items:center;gap:7px;font:600 11.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#FFD58A;background:rgba(242,181,68,.10);border:1px solid rgba(242,181,68,.35);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.tag-illus::before{content:"";width:6px;height:6px;border-radius:50%;background:#F2B544}
+.light .tag-illus{color:#7A4A00;background:#FFF3DC;border-color:#E9C27A}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--silver);white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+.chip[data-status=pilot]{color:var(--teal);border-color:rgba(63,209,184,.45);background:rgba(63,209,184,.07)}
+.chip[data-status=planned]{color:var(--silver)}
+.light .chip[data-status=planned]{color:#4A5A70;border-color:rgba(11,26,46,.22)}
+.light .chip[data-status=pilot]{color:var(--teal-ink);border-color:rgba(14,124,107,.4);background:rgba(14,124,107,.06)}
+/* footer */
+.site-footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--ink)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.site-footer p{color:var(--muted);font-size:15px;max-width:40ch;margin-top:16px}
+.site-footer h2{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:12px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:var(--text);text-decoration:none;font-size:15px}
+.site-footer li a:hover{text-decoration:underline}
+.foot-base{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>:first-child{grid-column:1/-1}}
+[hidden]{display:none!important}
+
+
+section{position:relative}
+.sec{padding:clamp(88px,11vw,152px) 0}
+.sec-alt{background:var(--ink2)}
+.light{background:var(--paper);color:var(--ptext)}
+.light p,.light .muted{color:var(--pmuted)}
+.h2{font-size:clamp(2.3rem,5.4vw,4.6rem);margin-top:22px}
+.h2 em,.h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.lede{font-size:clamp(1.08rem,1.6vw,1.3rem);line-height:1.55;color:var(--muted);max-width:56ch}
+.light .lede{color:var(--pmuted)}
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(168,183,203,.45),transparent);border:0;margin:0}
+.labelrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.small{font-size:14px;color:var(--muted)}
+.light .small{color:var(--pmuted)}
+.hero{padding:clamp(40px,5vw,64px) 0 clamp(72px,9vw,112px);overflow:hidden;background:radial-gradient(900px 520px at 82% 18%,rgba(52,120,255,.16),transparent 60%),radial-gradient(600px 400px at 6% 100%,rgba(63,209,184,.05),transparent 60%),var(--ink)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(32px,4vw,56px);align-items:center}
+.h1{font-size:clamp(2.6rem,4.9vw,4.7rem);line-height:1;letter-spacing:-.04em;margin:22px 0 24px}
+.h1 .line{display:block;white-space:nowrap}
+.hero .lede{max-width:52ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.pilot-note{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:14.5px;color:var(--muted);max-width:46ch}
+.pilot-note .chip{flex:none}
+.support{margin:36px 0 0;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 26px;font:500 15px/1.4 var(--display);color:var(--text)}
+.support span{display:flex;align-items:center;gap:9px}
+.support span::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.scene{position:relative;padding:0 0 0 clamp(0px,4vw,56px)}
+.scene-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.scene-top .small{font-size:13px}
+.console{background:linear-gradient(180deg,#0F213A,#0B192D);border:1px solid var(--line2);border-radius:18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden}
+.console-head{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.console-head b{color:var(--text);font-weight:600}
+.console-head .chip{margin-left:auto}
+.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:rgba(168,183,203,.25)}
+.console-body{padding:18px 22px 20px clamp(160px,13.5vw,196px)}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:15px;top:14px;bottom:14px;width:1px;background:linear-gradient(var(--blue),rgba(52,120,255,.15))}
+.tl li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:14px;padding:8px 0}
+.tl .n{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;font:600 13px/1 var(--display);background:#0B192D;border:1px solid var(--blue);color:var(--blue-hi);position:relative;z-index:1}
+.tl li.done .n{background:var(--blue);color:#fff}
+.tl b{display:block;font:600 15px/1.3 var(--display);color:var(--text)}
+.tl small{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4}
+.ch{display:inline-flex;align-items:center;gap:5px;font:600 10.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:6px;background:rgba(52,120,255,.12);color:var(--blue-hi)}
+.ch.t{background:rgba(63,209,184,.1);color:var(--teal)}
+.ch.s{background:rgba(168,183,203,.1);color:var(--silver)}
+.anim .tl li{opacity:0;transform:translateY(6px);transition:opacity .45s ease,transform .45s ease}
+.anim .tl li.show{opacity:1;transform:none}
+.record{margin-top:14px;padding:12px 14px;border:1px dashed var(--line2);border-radius:12px;font-size:13px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.record b{color:var(--text);font-weight:600}
+.phone{position:absolute;left:0;top:118px;width:clamp(200px,17vw,236px);background:#050C17;border:1px solid rgba(168,183,203,.35);border-radius:34px;padding:9px;box-shadow:0 50px 90px -30px rgba(0,0,0,.9),0 0 0 6px rgba(7,17,31,.9)}
+.screen{background:linear-gradient(180deg,#0E1E35,#0A1628);border-radius:26px;overflow:hidden;padding:12px 12px 14px;min-height:400px;display:flex;flex-direction:column}
+.notch{width:74px;height:20px;border-radius:12px;background:#050C17;margin:0 auto 10px}
+.ph-head{display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px;font:600 13px/1 var(--display)}
+.ph-head svg{width:20px;height:20px}
+.ph-head small{margin-left:auto;font:500 10.5px/1 var(--body);color:var(--teal)}
+.bub{font-size:12.6px;line-height:1.45;padding:9px 11px;border-radius:14px;margin-bottom:8px;max-width:94%}
+.bub.me{background:var(--blue);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.bub.remo{background:#1A2E4A;color:var(--text);border-bottom-left-radius:4px}
+.bub .who{display:block;font-size:10.5px;opacity:.75;margin-bottom:3px;font-weight:600;letter-spacing:.02em}
+.bub.brief{background:transparent;border:1px solid rgba(63,209,184,.35);color:var(--text)}
+.composer{margin-top:auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:7px 8px 7px 12px;font-size:11.5px;color:var(--muted)}
+.composer i{margin-left:auto;width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center}
+.composer svg{width:13px;height:13px;color:#fff}
+@media (max-width:1060px){.hero-grid{grid-template-columns:1fr}.scene{padding-left:0;max-width:720px}}
+@media (max-width:640px){.console-body{padding:18px 16px}.phone{position:relative;top:auto;left:auto;width:min(270px,82%);margin:-28px auto 0;z-index:2}.screen{min-height:0}}
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,96px);align-items:end}
+.rail{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;padding:0;position:relative}
+.rail li{position:relative;padding:28px 22px 0 0;border-top:1px solid var(--line2)}
+.rail li:nth-child(even){margin-top:56px}
+.rail li::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--blue)}
+.rail li:last-child::before{background:var(--teal);border-color:var(--teal)}
+.rail .k{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-hi)}
+.rail h3{font-size:clamp(1.25rem,1.8vw,1.55rem);margin:12px 0 10px}
+.rail p{font-size:15px;color:var(--muted);margin:0}
+.rail .ch{margin-top:12px}
+@media (max-width:860px){.split{grid-template-columns:1fr;align-items:start}.rail{grid-template-columns:1fr;margin-top:40px}
+ .rail li,.rail li:nth-child(even){margin:0 0 0 6px;border-top:0;border-left:1px solid var(--line2);padding:0 0 30px 26px}.rail li::before{top:4px;left:-6px}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:48px 0 0;border-bottom:1px solid var(--line)}
+.tab{appearance:none;background:transparent;border:0;border-bottom:2px solid transparent;color:var(--muted);font:600 16px/1.2 var(--display);padding:14px 18px;min-height:52px;cursor:pointer;margin-bottom:-1px}
+.tab[aria-selected=true]{color:var(--text);border-bottom-color:var(--blue)}
+.tab:hover{color:var(--text)}
+.panel{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,56px);padding-top:40px}
+.instr{font:400 clamp(1.5rem,2.6vw,2.2rem)/1.25 var(--serif);color:var(--text);margin:0 0 30px;max-width:32ch}
+.instr q{quotes:"\201C" "\201D"}
+.instr q::before,.instr q::after{color:var(--blue)}
+.instr-by{display:block;font:500 13px/1 var(--body);color:var(--muted);margin-top:12px;font-style:normal}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);transition:opacity .3s}
+.steps li[data-state=todo]{opacity:.32}
+.steps li[data-state=current] .sn{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 0 0 5px rgba(52,120,255,.18)}
+.steps li[data-state=done] .sn{background:rgba(52,120,255,.14);color:var(--blue-hi)}
+.sn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font:600 13px/1 var(--display);color:var(--muted)}
+.steps b{font:600 16px/1.3 var(--display);display:block}
+.steps p{font-size:15px;color:var(--muted);margin:4px 0 0}
+.handoff{margin-top:10px;border-left:2px solid #F2B544;background:rgba(242,181,68,.06);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;color:var(--text)}
+.handoff strong{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#FFD58A;margin-bottom:4px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.ctl{min-height:44px;min-width:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--text);font:600 14px/1 var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.ctl:hover:not(:disabled){border-color:var(--silver)}
+.ctl:disabled{opacity:.4;cursor:not-allowed}
+.ctl svg{width:16px;height:16px}
+.counter{font-size:14px;color:var(--muted);margin-left:6px}
+.owner{align-self:start;position:sticky;top:96px;background:var(--ink);border:1px solid var(--line2);border-radius:18px;padding:24px}
+.owner h3{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:18px}
+.owner .res{font:500 18px/1.45 var(--display);color:var(--text);margin-bottom:20px}
+.owner .dec{border-top:1px solid var(--line);padding-top:18px}
+.owner .dec b{display:block;font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#FFD58A;margin-bottom:10px}
+.owner .dec p{color:var(--text);font-size:15.5px}
+.owner .opts{display:flex;flex-wrap:wrap;gap:6px}
+.owner .opts span{font-size:13px;border:1px solid var(--line2);border-radius:999px;padding:6px 11px;color:var(--silver)}
+.owner .pending{font-size:14.5px;color:var(--muted)}
+.sources{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.sources span{font-size:12px;padding:4px 8px;border-radius:6px;border:1px dashed var(--line2);color:var(--silver)}
+@media (max-width:900px){.panel{grid-template-columns:1fr}.owner{position:static}}
+@media (max-width:520px){.tab{padding:12px;font-size:15px;flex:1 1 auto}}
+.cap-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:40px;align-items:end;margin-bottom:64px}
+.legend{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
+.legend div{display:flex;gap:12px;align-items:flex-start}.legend .chip{flex:none;min-width:84px;justify-content:center}
+.cap-group{display:grid;grid-template-columns:minmax(0,.32fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:44px 0;border-top:1px solid var(--line2)}
+.cap-group>header h3{font-size:clamp(1.6rem,2.4vw,2.1rem)}
+.cap-group>header p{font-size:15px;color:var(--muted);margin-top:12px;max-width:30ch}
+.cap-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.cap{padding:20px 0;border-bottom:1px solid var(--line)}
+.cap .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.cap h4{font-size:19px;letter-spacing:-.015em;line-height:1.25}
+.cap p{font-size:15.5px;color:var(--muted);margin:0}
+.cap .note{display:block;font-size:13px;color:var(--silver);opacity:.85;margin-top:8px}
+.cap-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;background:linear-gradient(135deg,#0F2340,#0B1A2E);border:1px solid var(--line2);border-radius:22px;padding:clamp(22px,4vw,48px);margin-top:28px}
+.cap-feature h4{font-size:clamp(1.7rem,3vw,2.5rem);margin:14px 0 12px}
+.cap-feature p{color:var(--muted);font-size:16.5px}
+.crm{background:var(--ink);border:1px solid var(--line2);border-radius:16px;padding:18px;font-size:14px}
+.crm .row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.crm .row:last-child{border:0}
+.crm .row b{color:var(--text);font-weight:500;text-align:right}
+.crm .nm{font:600 17px/1.2 var(--display);color:var(--text);margin-bottom:6px}
+.status-table{margin-top:56px;width:100%;border-collapse:collapse;font-size:14px}
+.status-table caption{text-align:left;font:600 13px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--silver);padding-bottom:14px}
+.status-table th,.status-table td{text-align:left;padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.status-table th{color:var(--silver);font-weight:600}
+.status-table td{color:var(--muted)}
+.status-table td:first-child{color:var(--text);font-weight:500}
+@media (max-width:900px){.cap-intro,.cap-group,.cap-feature{grid-template-columns:1fr}.cap-list{grid-template-columns:1fr}}
+@media (max-width:700px){.status-table thead{display:none}.status-table,.status-table tbody,.status-table tr,.status-table td{display:block;width:100%}
+ .status-table tr{padding:12px 0;border-bottom:1px solid var(--line)}.status-table td{border:0;padding:3px 0}
+ .status-table td[data-l]::before{content:attr(data-l) ": ";color:var(--silver);font-weight:600}}
+.mob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(32px,6vw,96px);align-items:center}
+.vtabs{display:flex;flex-direction:column;margin-top:40px;border-top:1px solid var(--line)}
+.vtab{appearance:none;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--muted);padding:18px 4px 18px 20px;min-height:56px;cursor:pointer;position:relative;font:inherit}
+.vtab b{display:block;font:600 19px/1.25 var(--display);color:var(--muted)}
+.vtab span{display:block;font-size:14.5px;margin-top:4px}
+.vtab[aria-selected=true] b{color:var(--text)}
+.vtab[aria-selected=true]::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:2px;background:var(--blue)}
+.vtab:hover b{color:var(--text)}
+.bigphone{justify-self:center;width:min(330px,100%);margin:0 auto;background:#050C17;border:1px solid rgba(168,183,203,.35);border-radius:44px;padding:11px;box-shadow:0 60px 100px -40px rgba(0,0,0,.9)}
+.bigphone .screen{min-height:560px;border-radius:34px;padding:14px 16px 18px}
+.vp h4{font-size:20px;margin:4px 0 14px}
+.vp .card{background:#13263F;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;font-size:13.5px;line-height:1.45}
+.vp .card .k{font:600 10.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#FFD58A;margin-bottom:6px;display:block}
+.vp .card .k.t{color:var(--teal)}
+.vp .acts{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.vp .acts span{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--text)}
+.vp .acts span.p{background:var(--blue);border-color:var(--blue)}
+.mic{width:76px;height:76px;border-radius:50%;margin:18px auto 10px;display:grid;place-items:center;background:radial-gradient(circle,rgba(52,120,255,.35),rgba(52,120,255,.08));border:1px solid rgba(52,120,255,.5)}
+.mic svg{width:30px;height:30px;color:#fff}
+.center{text-align:center}
+.suggest{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;justify-content:center}
+.suggest span{font-size:12px;padding:7px 10px;border-radius:999px;background:#13263F;border:1px solid var(--line);color:var(--text)}
+.vp ul.done{list-style:none;margin:0;padding:0}
+.vp ul.done li{display:flex;gap:8px;padding:5px 0;font-size:13px}
+.vp ul.done li::before{content:"";flex:none;width:7px;height:7px;margin-top:6px;border-radius:50%;background:var(--teal)}
+.vp ul.wait li::before{background:#F2B544}
+@media (max-width:860px){.mob{grid-template-columns:1fr}.bigphone .screen{min-height:520px}}
+.cust{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);margin-top:48px}
+.cust-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.cust-list li{padding:14px 0;border-bottom:1px solid rgba(11,26,46,.12);font:500 17px/1.3 var(--display);color:var(--ptext);display:flex;gap:12px;align-items:baseline}
+.cust-list li span{font:600 12px/1 var(--body);color:#1D5BDB;min-width:22px}
+.profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px;align-items:start}
+.profile{background:#fff;border:1px solid rgba(11,26,46,.1);border-radius:20px;padding:28px;box-shadow:0 20px 40px -32px rgba(11,26,46,.35)}
+.profile:nth-child(2){margin-top:48px;background:var(--ink);color:var(--text);border-color:var(--ink)}
+.profile:nth-child(3){margin-top:96px}
+.profile .kind{font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#1D5BDB}
+.profile:nth-child(2) .kind{color:var(--blue-hi)}
+.profile blockquote{margin:16px 0 20px;font:400 23px/1.3 var(--serif);color:inherit}
+.profile dl{margin:0;font-size:14px}
+.profile dt{font-weight:600;margin-top:10px}
+.profile dd{margin:2px 0 0;color:var(--pmuted)}
+.profile:nth-child(2) dd{color:var(--muted)}
+.compare{margin-top:clamp(72px,9vw,120px)}
+.compare h3{font-size:clamp(1.8rem,3.4vw,2.8rem);max-width:20ch}
+.ctable{width:100%;border-collapse:collapse;margin-top:32px}
+.ctable th,.ctable td{text-align:left;padding:22px 24px 22px 0;border-bottom:1px solid rgba(11,26,46,.14);vertical-align:top}
+.ctable thead th{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--pmuted);border-bottom:2px solid var(--ptext)}
+.ctable tbody th{font:600 20px/1.3 var(--display);color:var(--ptext);width:34%}
+.ctable td{font-size:17px;color:var(--ptext)}
+@media (max-width:900px){.cust{grid-template-columns:1fr}.profiles{grid-template-columns:1fr}.profile:nth-child(n){margin-top:0}}
+@media (max-width:560px){.cust-list{grid-template-columns:1fr}.ctable thead{display:none}.ctable,.ctable tbody,.ctable tr,.ctable th,.ctable td{display:block;width:100%}
+ .ctable tr{padding:18px 0;border-bottom:1px solid rgba(11,26,46,.14)}.ctable th,.ctable td{border:0;padding:0}.ctable td{margin-top:6px}}
+.stages{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stages li{padding:0 28px 0 0}
+.stages .num{font:500 clamp(3.4rem,6vw,5.2rem)/1 var(--display);color:transparent;-webkit-text-stroke:1px rgba(110,162,255,.75);letter-spacing:-.04em}
+.stages h3{font-size:21px;margin:18px 0 10px;padding-top:18px;border-top:1px solid var(--line2)}
+.stages p{font-size:15.5px;color:var(--muted)}
+.setup-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);margin-top:clamp(64px,8vw,104px);align-items:stretch}
+.package{background:var(--ink2);border:1px solid var(--line2);border-radius:22px;padding:clamp(22px,3.5vw,40px)}
+.package .k{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--silver)}
+.package h3{font-size:clamp(1.6rem,2.6vw,2.1rem);margin:12px 0 22px}
+.package ul{list-style:none;margin:0;padding:0}
+.package li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:16px}
+.package li svg{flex:none;width:18px;height:18px;color:var(--teal);margin-top:4px}
+.package .note{margin:18px 0 0;font-size:14px;color:var(--muted)}
+.channels{border:1px solid var(--line2);border-radius:22px;padding:clamp(22px,3.5vw,40px);background:linear-gradient(180deg,#0F213A,#0B192D);display:flex;flex-direction:column}
+.truth{font:400 clamp(1.1rem,1.7vw,1.32rem)/1.5 var(--display);color:var(--text);border-left:3px solid var(--teal);padding-left:18px;margin:16px 0 28px}
+.truth strong{font-weight:600}
+.lanes{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:auto}
+.lane{border:1px solid var(--line2);border-radius:14px;padding:14px;background:var(--ink)}
+.lane b{display:block;font:600 15px/1.3 var(--display)}
+.lane small{display:block;font-size:13px;color:var(--muted);margin:4px 0 10px}
+.lanes .join{grid-column:1/-1;text-align:center;border:1px dashed rgba(63,209,184,.5);border-radius:14px;padding:14px;font-size:14px;color:var(--text)}
+.lanes .join b{color:var(--teal);font-weight:600}
+.lanes .vs{font:600 20px/1 var(--display);color:var(--silver)}
+.arrows{grid-column:1/-1;display:flex;justify-content:space-around;color:var(--silver);font-size:18px;line-height:1}
+@media (max-width:960px){.stages{grid-template-columns:1fr 1fr;gap:40px 0}.setup-grid{grid-template-columns:1fr}}
+@media (max-width:540px){.stages{grid-template-columns:1fr}.stages li{padding:0}.lanes{grid-template-columns:1fr}.lanes .vs{text-align:center}.arrows{display:none}}
+.intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:start}
+.topics{list-style:none;margin:0;padding:0;counter-reset:t}
+.topics li{counter-increment:t;display:grid;grid-template-columns:48px 1fr;gap:12px;padding:20px 0;border-bottom:1px solid rgba(11,26,46,.14);font:500 clamp(1.15rem,1.8vw,1.4rem)/1.3 var(--display);color:var(--ptext)}
+.topics li::before{content:counter(t,decimal-leading-zero);font:600 13px/1.9 var(--body);color:#1D5BDB}
+.topics-k{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--pmuted);margin-bottom:6px;display:block}
+.pricing{margin-top:40px;background:#fff;border:1px solid rgba(11,26,46,.1);border-radius:18px;padding:24px 26px}
+.pricing h3{font-size:18px;margin-bottom:10px}
+.pricing p{margin:0;font-size:16px}
+@media (max-width:900px){.intro{grid-template-columns:1fr}}
+.faq{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(32px,6vw,96px)}
+.faq-side{position:sticky;top:110px;align-self:start}
+.faq-list{border-top:1px solid var(--line2)}
+.faq-item h3{margin:0;font-size:inherit;letter-spacing:0}
+.faq-q{appearance:none;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);font:600 clamp(1.05rem,1.5vw,1.2rem)/1.35 var(--display);letter-spacing:-.01em;padding:20px 48px 20px 0;min-height:64px;cursor:pointer;position:relative;display:flex;gap:16px}
+.faq-q .i{font:600 12px/1.9 var(--body);color:var(--blue-hi);min-width:24px;flex:none}
+.faq-q::after{content:"";position:absolute;right:10px;top:50%;width:10px;height:10px;border-right:2px solid var(--silver);border-bottom:2px solid var(--silver);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq-q[aria-expanded=true]::after{transform:translateY(-20%) rotate(-135deg)}
+.faq-a{padding:6px 40px 24px 40px;border-bottom:1px solid var(--line);color:var(--muted);font-size:16px}
+.faq-a p{margin:0;max-width:66ch}
+@media (max-width:900px){.faq{grid-template-columns:1fr}.faq-side{position:static}.faq-a{padding:6px 0 22px 40px}}
+.final{padding:clamp(104px,13vw,184px) 0;background:radial-gradient(800px 420px at 50% 100%,rgba(52,120,255,.2),transparent 70%),var(--ink2)}
+.final .h2{font-size:clamp(2.6rem,6.6vw,6rem);max-width:15ch}
+.final .h2 .rb{color:#4C8DFF}
+.final .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:40px}
+.final .lede{margin:0}
+
+</style>
+<title>RemoBlue | Your Business's AI Executive Assistant</title>
+<meta name="description" content="Explore RemoBlue, a custom AI executive assistant designed for calls, customer conversations, appointments, research, marketing, CRM, and follow-up. Book an intro call.">
+<link rel="canonical" href="https://remoblue.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RemoBlue">
+<meta property="og:url" content="https://remoblue.com/">
+<meta property="og:title" content="RemoBlue | Your Business&#39;s AI Executive Assistant">
+<meta property="og:description" content="Explore RemoBlue, a custom AI executive assistant designed for calls, customer conversations, appointments, research, marketing, CRM, and follow-up. Book an intro call.">
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rbLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E40AF"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+    <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#06B6D4"/></linearGradient>
+  </defs>
+  <symbol id="rb-mark" viewBox="0 0 64 64">
+    <path d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#1E3A8A"/>
+    <path d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#1D4ED8"/>
+    <path d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#2563EB"/>
+    <path d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#3B82F6"/>
+    <path d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#06B6D4"/>
+    <path d="M7.75 46 7.75 18 20.74 25.5 20.74 38.5Z" fill="url(#rbLeft)"/>
+    <path d="M7.75 18 32 4 32 19Z" fill="#0B1530" opacity=".35"/>
+    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#93C5FD" opacity=".45"/>
+    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#38BDF8" opacity=".45"/>
+    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#1E3A8A" opacity=".25"/>
+  </symbol>
+  <!-- UI icons -->
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M15 3h6v6M21 3l-6 6"/></g></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></g></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-bubble" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></g></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8v18L3 13z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></g></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></g></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></g></symbol>
+  <symbol id="i-done" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></g></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 15V9M14 15V9"/></g></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m4 10 4 4 8-8"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M4 10h12M11 5l5 5-5 5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7 2v10M2 7h10"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#handles">What it handles</a>
+      <a href="#setup">Your setup</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta desk" href="book.html">Book an intro call</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" data-open="false" aria-label="Mobile">
+    <a href="#how">How it works</a>
+    <a href="#handles">What it handles</a>
+    <a href="#setup">Your setup</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-primary" href="book.html">Book an intro call</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Introducing RemoBlue</span>
+      <h1 class="h1" id="hero-h"><span class="line">Meet your</span><span class="line">business's new</span><span class="line"><em>right hand.</em></span></h1>
+      <p class="lede">We're building a custom AI executive assistant for your business—designed to handle calls, messages, email, appointments, research, marketing, and follow-up. Give it direction from your phone. Keep your customers and the work in one place.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="book.html">Book an intro call <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#workflow">Explore the workflow</a>
+      </div>
+      <p class="pilot-note"><span class="chip" data-status="pilot">Pilot</span><span>Discuss your workflows, your setup, and pilot availability.</span></p>
+      <p class="support"><span>Configured around your business.</span><span>Connected to your tools.</span><span>Guided by your rules.</span></p>
+    </div>
+
+    <div class="scene" role="group" aria-labelledby="scene-l">
+      <div class="scene-top">
+        <span class="tag-illus" id="scene-l">Illustrative workflow</span>
+        <span class="small">Fictional owner and example customers. A simulation, not live data.</span>
+      </div>
+      <div class="console" id="heroConsole">
+        <div class="console-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><b>Task · Quote follow-up</b><span class="chip" data-status="planned">Example</span></div>
+        <div class="console-body">
+          <ol class="tl" aria-label="Illustrative task timeline">
+            <li class="done"><span class="n">1</span><div><b>Customer history checked</b><small><span class="ch s">CRM</span>Example customers waiting on a quote</small></div></li>
+            <li class="done"><span class="n">2</span><div><b>Approved outreach prepared</b><small><span class="ch">SMS</span><span class="ch">Email</span>Using your saved follow-up message</small></div></li>
+            <li class="done"><span class="n">3</span><div><b>A customer replies</b><small><span class="ch">SMS</span>“Could you do later this week?”</small></div></li>
+            <li class="done"><span class="n">4</span><div><b>Available appointment selected</b><small><span class="ch s">Calendar</span>Offered within your scheduling rules</small></div></li>
+            <li class="done"><span class="n">5</span><div><b>CRM updated and owner briefed</b><small><span class="ch t">Owner</span>Next step recorded on the customer</small></div></li>
+          </ol>
+          <div class="record"><b>Example customer</b><span>Call · SMS · Email — one connected history</span></div>
+        </div>
+      </div>
+      <div class="phone" role="img" aria-label="Illustrative phone conversation. The owner writes: Remo, follow up with the customers waiting on a quote, offer available appointments, and tell me who needs my attention.">
+        <div class="screen" aria-hidden="true">
+          <div class="notch"></div>
+          <div class="ph-head"><svg viewBox="0 0 64 64"><use href="#rb-mark"/></svg>Remo<small>Working</small></div>
+          <p class="bub me"><span class="who">Owner</span>Remo, follow up with the customers waiting on a quote, offer available appointments, and tell me who needs my attention.</p>
+          <p class="bub remo"><span class="who">Remo</span>On it. I'll use your approved follow-up and check the calendar before offering times.</p>
+          <p class="bub remo brief"><span class="who">Brief</span>One example customer chose a time. Another has a pricing question for you.</p>
+          <div class="composer">Speak or type to Remo<i><svg><use href="#i-mic"/></svg></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section class="sec" id="how" aria-labelledby="s2-h">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2 class="h2" id="s2-h">The work doesn't stop when the conversation <em>ends.</em></h2>
+      </div>
+      <p class="lede">A call creates a next step. An email changes the plan. A customer needs an answer before they book. RemoBlue is designed to keep those moments connected—with the customer history, the next action, and the owner's priorities in view.</p>
+    </div>
+    <div class="labelrow" style="margin-top:64px;margin-bottom:0"><span class="tag-illus">Illustrative workflow</span><span class="small">One example customer, start to finish</span></div>
+    <ol class="rail" aria-label="Illustrative sequence from missed inquiry to recorded outcome">
+      <li><span class="k">01</span><h3>Missed inquiry</h3><p>An example customer calls while the owner is with someone else.</p><span class="ch">Call</span></li>
+      <li><span class="k">02</span><h3>Response</h3><p>A follow-up goes out using the owner's approved wording.</p><span class="ch">SMS</span></li>
+      <li><span class="k">03</span><h3>Conversation</h3><p>The customer's questions are answered from approved business information.</p><span class="ch">SMS</span> <span class="ch">Email</span></li>
+      <li><span class="k">04</span><h3>Appointment</h3><p>A time is offered from the connected calendar and confirmed.</p><span class="ch s">Calendar</span></li>
+      <li><span class="k">05</span><h3>Recorded outcome</h3><p>The conversation, booking, and next step land on the customer record.</p><span class="ch t">CRM</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="workflow" aria-labelledby="s3-h">
+  <div class="wrap">
+    <div class="split">
+      <div><span class="eyebrow">Explore the workflow</span>
+      <h2 class="h2" id="s3-h">One instruction.<br>A clear path to <em>done.</em></h2></div>
+      <div><p class="lede">Pick a scenario and step through what RemoBlue is designed to do with a single instruction from the owner.</p><span class="tag-illus">Illustrative workflow · simulation</span></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Example scenarios" id="scTabs"></div>
+    <div id="scPanels"></div>
+  </div>
+</section>
+
+<section class="sec" id="handles" aria-labelledby="s4-h">
+  <div class="wrap">
+    <div class="cap-intro">
+      <div><span class="eyebrow">What it handles</span>
+      <h2 class="h2" id="s4-h">The everyday work of running a business. <em>Connected.</em></h2></div>
+      <div class="legend" aria-label="Status key">
+        <div><span class="chip" data-status="planned">Planned</span><span>Being designed and developed for the platform.</span></div>
+        <div><span class="chip" data-status="pilot">Pilot</span><span>A working prototype has been demonstrated and is being tested.</span></div>
+        <div>Nothing here is generally available yet. Availability is discussed on your intro call.</div>
+      </div>
+    </div>
+    <div class="cap-group">
+      <header><h3>Conversations</h3><p>Calls, messages, and email that move toward a next step, with the history attached.</p></header>
+      <div class="cap-list" data-caps="sales,service,messaging,email"></div>
+    </div>
+    <div class="cap-group">
+      <header><h3>Coordination</h3><p>The scheduling and follow-through that usually lives in someone's head.</p></header>
+      <div class="cap-list" data-caps="appointments,followup,owner"></div>
+    </div>
+    <div class="cap-group">
+      <header><h3>Knowledge &amp; growth</h3><p>Research, marketing, and a customer record of its own, built into the same work.</p></header>
+      <div>
+        <div class="cap-list" data-caps="research,marketing"></div>
+        <div class="cap-feature">
+          <div><span data-chip="crm"></span><h4>Your own CRM</h4><p data-desc="crm"></p><span class="small" data-note="crm"></span></div>
+          <div class="crm" role="group" aria-label="Product preview: example customer record">
+            <div class="labelrow" style="margin-bottom:10px"><span class="tag-illus">Product preview</span></div>
+            <div class="nm">Example customer</div>
+            <div class="row"><span>Opportunity</span><b>Quote requested</b></div>
+            <div class="row"><span>Conversations</span><b>Call · SMS · Email</b></div>
+            <div class="row"><span>Service case</span><b>None open</b></div>
+            <div class="row"><span>Next step</span><b>Confirm appointment</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="status-table" id="statusTable">
+      <caption>Where each capability stands</caption>
+      <thead><tr><th scope="col">Capability</th><th scope="col">Status</th><th scope="col">Evidence</th><th scope="col">Availability</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec sec-alt" aria-labelledby="s5-h">
+  <div class="wrap mob">
+    <div>
+      <span class="eyebrow">Owner access</span>
+      <h2 class="h2" id="s5-h">Your assistant, wherever the day <em>takes you.</em></h2>
+      <p class="lede" style="margin-top:24px">Tell Remo what you need. Review the decisions that matter. See what happened without chasing updates across separate apps.</p>
+      <div class="vtabs" role="tablist" aria-label="Phone preview views" aria-orientation="vertical">
+        <button class="vtab" type="button" role="tab" id="vt-0" aria-controls="vp-0" aria-selected="true" tabindex="0"><b>Talk to Remo</b><span>Give spoken or typed instructions.</span></button>
+        <button class="vtab" type="button" role="tab" id="vt-1" aria-controls="vp-1" aria-selected="false" tabindex="-1"><b>Needs your decision</b><span>Approve a draft, resolve an exception, choose a next step.</span></button>
+        <button class="vtab" type="button" role="tab" id="vt-2" aria-controls="vp-2" aria-selected="false" tabindex="-1"><b>What Remo accomplished</b><span>Completed work, customer responses, and what's still waiting.</span></button>
+      </div>
+    </div>
+    <div>
+      <div class="labelrow" style="justify-content:center"><span class="tag-illus">Product preview</span><span class="small">Concept screens. No microphone access is requested.</span></div>
+      <div class="bigphone">
+        <div class="screen">
+          <div class="notch" aria-hidden="true"></div>
+          <div class="ph-head"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg>RemoBlue<small>Example</small></div>
+          <div class="vp" role="tabpanel" id="vp-0" aria-labelledby="vt-0" tabindex="0">
+            <h4>Talk to Remo</h4>
+            <div class="mic" aria-hidden="true"><svg><use href="#i-mic"/></svg></div>
+            <p class="center small" style="margin-bottom:12px">Hold to speak, or type below</p>
+            <p class="bub me" style="font-size:13px">Move the Thursday estimate to Friday and let the customer know.</p>
+            <p class="bub remo" style="font-size:13px"><span class="who">Remo</span>I'll check Friday against your calendar rules and send you the change to OK first.</p>
+            <div class="suggest" aria-label="Example instructions"><span>Who's waiting on me?</span><span>Draft this week's posts</span><span>Call back new leads</span></div>
+          </div>
+          <div class="vp" role="tabpanel" id="vp-1" aria-labelledby="vt-1" tabindex="0" hidden>
+            <h4>Needs your decision</h4>
+            <div class="card"><span class="k">Approve a draft</span>Reply to an example customer asking about package options.<div class="acts" aria-hidden="true"><span class="p">Approve</span><span>Edit</span></div></div>
+            <div class="card"><span class="k">Resolve an exception</span>A customer asked for a refund outside your policy.<div class="acts" aria-hidden="true"><span class="p">Call them</span><span>Decline</span><span>Approve</span></div></div>
+            <div class="card"><span class="k">Choose a next step</span>A lead wants a weekend visit you don't usually offer.<div class="acts" aria-hidden="true"><span class="p">Offer Monday</span><span>Make an exception</span></div></div>
+          </div>
+          <div class="vp" role="tabpanel" id="vp-2" aria-labelledby="vt-2" tabindex="0" hidden>
+            <h4>What Remo accomplished</h4>
+            <div class="card"><span class="k t">Completed</span><ul class="done"><li>Followed up with leads who asked about your service</li><li>Answered routine questions from approved info</li><li>Updated customer records and next steps</li></ul></div>
+            <div class="card"><span class="k t">Customer responses</span><ul class="done"><li>An example customer chose an appointment</li><li>Another asked a question only you can answer</li></ul></div>
+            <div class="card"><span class="k">Still waiting</span><ul class="done wait"><li>Two example customers haven't replied. Follow-up planned per your rules.</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" aria-labelledby="s6-h">
+  <div class="wrap">
+    <span class="eyebrow">Configured for you</span>
+    <h2 class="h2" id="s6-h"><span style="display:block">Your services.</span><span style="display:block">Your voice.</span><span style="display:block">Your way of <em>working.</em></span></h2>
+    <div class="cust">
+      <p class="lede">RemoBlue is designed to be set up around how your business actually runs: what you offer, how you sound, and where you want to stay in the loop.</p>
+      <ul class="cust-list" aria-label="What can be configured">
+        <li><span>01</span>Offers and FAQs</li><li><span>02</span>Business hours</li>
+        <li><span>03</span>Tone of voice</li><li><span>04</span>Calendars</li>
+        <li><span>05</span>Who receives transfers</li><li><span>06</span>What needs approval</li>
+        <li><span>07</span>Follow-up rules</li><li><span>08</span>Customer history</li>
+      </ul>
+    </div>
+    <div class="labelrow" style="margin-top:clamp(64px,8vw,104px)"><span class="tag-illus">Illustrative profiles</span><span class="small">Fictional businesses. Same platform, different setup.</span></div>
+    <div class="profiles">
+      <article class="profile" aria-label="Example service company"><span class="kind">Example · Service company</span>
+        <blockquote>“Text everyone who asked for an estimate this week and offer them the next two openings.”</blockquote>
+        <dl><dt>Configured with</dt><dd>Service-area notes, estimate FAQs, crew calendar</dd><dt>Needs approval</dt><dd>Any discount or schedule exception</dd></dl></article>
+      <article class="profile" aria-label="Example professional firm"><span class="kind">Example · Professional firm</span>
+        <blockquote>“Before each consultation, send the reminder and tell me who hasn't confirmed.”</blockquote>
+        <dl><dt>Configured with</dt><dd>Consultation types, formal tone, team calendars</dd><dt>Transfers to</dt><dd>The office manager for anything non-routine</dd></dl></article>
+      <article class="profile" aria-label="Example growing retail business"><span class="kind">Example · Growing retail business</span>
+        <blockquote>“Let the customers who asked about the new collection know it's in, and draft three posts for the weekend.”</blockquote>
+        <dl><dt>Configured with</dt><dd>Product notes, brand voice, store hours</dd><dt>Needs approval</dt><dd>Every post before it's scheduled</dd></dl></article>
+    </div>
+    <div class="compare">
+      <h3>A managed assistant, configured for your business.</h3>
+      <table class="ctable">
+        <thead><tr><th scope="col">What the owner needs</th><th scope="col">The RemoBlue approach</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Business knowledge</th><td>Configure approved information, offers, tone, and escalation rules.</td></tr>
+          <tr><th scope="row">Connected action</th><td>Connect communication, calendars, marketing, and CRM to the same task.</td></tr>
+          <tr><th scope="row">Continuing work</th><td>Track what happens after the first instruction and respond to new events.</td></tr>
+          <tr><th scope="row">Help getting started</th><td>Managed setup, account connections, onboarding, and agreed ongoing support.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="setup" aria-labelledby="s7-h">
+  <div class="wrap">
+    <span class="eyebrow">Your setup</span>
+    <h2 class="h2" id="s7-h" style="max-width:15ch">We help put your assistant to <em>work.</em></h2>
+    <ol class="stages">
+      <li><span class="num" aria-hidden="true">01</span><h3><span class="sr-only">Stage 1: </span>Map your business</h3><p>Discuss the work, customer journey, tools, and priorities.</p></li>
+      <li><span class="num" aria-hidden="true">02</span><h3><span class="sr-only">Stage 2: </span>Configure your setup</h3><p>Prepare your business profile, connect accounts, and provision the agreed voice-and-text number.</p></li>
+      <li><span class="num" aria-hidden="true">03</span><h3><span class="sr-only">Stage 3: </span>Connect and test</h3><p>Configure the local Apple messaging hardware where included and test the agreed workflows.</p></li>
+      <li><span class="num" aria-hidden="true">04</span><h3><span class="sr-only">Stage 4: </span>Put it in your hands</h3><p>Set up phone access, practice real instructions, and establish ongoing support.</p></li>
+    </ol>
+    <div class="setup-grid">
+      <div class="package">
+        <span class="k">Proposed managed setup</span>
+        <h3>What a RemoBlue setup is designed to include</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>A RemoBlue workspace configured for the business.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>A dedicated business number for voice and SMS, powered by Twilio.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>A configured Mac mini for the proposed Apple messaging setup.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Connections to agreed email, calendar, and marketing accounts.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>CRM and follow-up configuration.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Owner onboarding and agreed ongoing service.</li>
+        </ul>
+        <p class="note">Installation arrangements are confirmed during your intro call.</p>
+      </div>
+      <div class="channels" role="group" aria-labelledby="ch-h">
+        <div class="labelrow"><h3 id="ch-h" style="font-size:22px">Two channels. One customer history.</h3><span class="tag-illus">Illustrative</span></div>
+        <p class="truth"><strong>Your business number handles calls and SMS. iMessage uses a separately configured Apple identity.</strong> They can share customer history in RemoBlue, but they are not automatically the same sender.</p>
+        <div class="lanes">
+          <div class="lane"><b>Business number</b><small>Dedicated number via Twilio</small><span class="ch">Voice</span> <span class="ch">SMS</span></div>
+          <span class="vs" aria-label="is separate from">≠</span>
+          <div class="lane"><b>Apple identity</b><small>Separate Apple Account, configured on the Mac mini</small><span class="ch">iMessage</span></div>
+          <div class="arrows" aria-hidden="true"><span>↓</span><span>↓</span></div>
+          <div class="join"><b>RemoBlue customer record</b> · conversations from both kept together</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" aria-labelledby="s8-h">
+  <div class="wrap intro">
+    <div>
+      <span class="eyebrow">The intro call</span>
+      <h2 class="h2" id="s8-h">Bring the work you want off your <em>plate.</em></h2>
+      <p class="lede" style="margin-top:24px">We'll look at how your business operates, where work gets stuck, and what a RemoBlue setup would need to handle. You'll get a clearer picture of the configuration, rollout, and costs before deciding on a next step.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="book.html">Book an intro call <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+    <div>
+      <span class="topics-k">What we'll cover</span>
+      <ul class="topics">
+        <li>Your priority workflows</li>
+        <li>Current tools and accounts</li>
+        <li>Phone, messaging, and hardware setup</li>
+        <li>Scope, availability, and pricing</li>
+      </ul>
+      <div class="pricing">
+        <h3>How pricing works</h3>
+        <p>Setup and ongoing service are scoped to your business. Hardware, account connections, support, and usage needs shape the proposal. We'll explain what is included and what is metered during your intro call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="s9-h">
+  <div class="wrap faq">
+    <div class="faq-side">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2" id="s9-h">Questions, <em>answered plainly.</em></h2>
+      <p class="lede" style="margin-top:20px">Still unsure about fit? That's what the intro call is for.</p>
+      <div class="cta-row"><a class="btn btn-primary btn-sm" href="book.html">Book an intro call</a></div>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="s10-h">
+  <div class="wrap">
+    <h2 class="h2" id="s10-h">Give the next step a name: <span class="rb">RemoBlue.</span></h2>
+    <div class="row">
+      <p class="lede">Let's map the work your assistant should handle—and what it will take to make it useful in your business.</p>
+      <a class="btn btn-primary" href="book.html">Book an intro call <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+        <p>A custom AI executive assistant being developed for business owners—designed to handle calls, messages, email, appointments, research, marketing, and follow-up, with the work kept in one place.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#handles">What it handles</a></li>
+          <li><a href="#setup">Your setup</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="book.html">Book an intro call</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2>Legal (draft)</h2>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy — draft</a></li>
+          <li><a href="legal.html#terms">Terms — draft</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-base"><span>© <span data-year>2026</span> RemoBlue</span><span>Your business. Your assistant. Work followed through.</span></div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(!b)return;
+b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);m.dataset.open=o;});
+m.addEventListener('click',e=>{if(e.target.closest('a')){b.setAttribute('aria-expanded','false');m.dataset.open='false';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){b.setAttribute('aria-expanded','false');m.dataset.open='false';b.focus();}});})();
+</script>
+
+
+<script>
+/* ===== Capability manifest. launchMode: pilot. Nothing is "available" in this build. ===== */
+const SITE = { launchMode: "pilot" };
+const CAPABILITIES = [
+  { id:"sales", name:"Sales calls", status:"pilot",
+    description:"Follow up with approved prospects, explain your offer, answer questions, and move the conversation toward a clear next step.",
+    evidence:"The founder has demonstrated an outbound AI calling prototype.",
+    availability:"Prototype demonstrated. Pilot availability is discussed on your intro call." },
+  { id:"service", name:"Customer service", status:"planned",
+    description:"Handle routine inquiries, capture details, and bring in your team when a person or exception is needed.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned for the platform." },
+  { id:"messaging", name:"Texts and iMessage", status:"pilot",
+    description:"Keep customer conversations moving across supported messaging channels, with the history attached to the customer.",
+    evidence:"The founder has demonstrated an iMessage prototype on iPad. Twilio SMS is planned.",
+    availability:"iMessage prototype demonstrated; SMS planned. Both confirmed during setup." },
+  { id:"email", name:"Email", status:"planned",
+    description:"Organize incoming requests, prepare or send approved replies, and keep the conversation connected to the work.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned for the platform." },
+  { id:"appointments", name:"Appointments", status:"planned",
+    description:"Coordinate availability, bookings, changes, and reminders using connected calendars and your scheduling rules.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned for the platform." },
+  { id:"research", name:"Research", status:"planned",
+    description:"Find current information, summarize the useful parts, and bring sources into the task.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned for the platform." },
+  { id:"marketing", name:"Marketing", status:"planned",
+    description:"Develop content in your brand voice and coordinate approved social publishing through Blotato.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned. Blotato accounts and platforms are confirmed during setup." },
+  { id:"crm", name:"Your own CRM", status:"planned",
+    description:"Keep contacts, opportunities, service cases, conversations, and tasks together inside RemoBlue.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned as part of the platform." },
+  { id:"followup", name:"Follow-up", status:"planned",
+    description:"Remember the next step and adjust when a customer responds, books, declines, or no longer wants contact.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned for the platform." },
+  { id:"owner", name:"Owner access", status:"planned",
+    description:"Speak or type instructions from your phone, review decisions, and see what has been accomplished.",
+    evidence:"In development. Not yet demonstrated.", availability:"Planned as a mobile-friendly workspace." }
+];
+const STATUS_LABEL = { planned:"Planned", pilot:"Pilot", available:"Available" };
+const capById = Object.fromEntries(CAPABILITIES.map(c=>[c.id,c]));
+const esc = s => String(s).replace(/[&<>"]/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const chip = c => `<span class="chip" data-status="${c.status}"><span class="sr-only">Status: </span>${STATUS_LABEL[c.status]}</span>`;
+document.querySelectorAll('[data-caps]').forEach(el=>{
+  el.innerHTML = el.dataset.caps.split(',').map(id=>{const c=capById[id];
+    return `<div class="cap"><div class="top"><h4>${esc(c.name)}</h4>${chip(c)}</div><p>${esc(c.description)}</p><span class="note">${esc(c.availability)}</span></div>`;}).join('');
+});
+document.querySelectorAll('[data-chip]').forEach(el=>{el.outerHTML=chip(capById[el.dataset.chip]);});
+document.querySelectorAll('[data-desc]').forEach(el=>el.textContent=capById[el.dataset.desc].description);
+document.querySelectorAll('[data-note]').forEach(el=>el.textContent=capById[el.dataset.note].availability);
+document.querySelector('#statusTable tbody').innerHTML = CAPABILITIES.map(c=>
+  `<tr><td>${esc(c.name)}</td><td data-l="Status">${chip(c)}</td><td data-l="Evidence">${esc(c.evidence)}</td><td data-l="Availability">${esc(c.availability)}</td></tr>`).join('');
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Hero timeline: one short pass showing progress */
+(function(){ if(reduce) return; const con=document.getElementById('heroConsole'); const items=[...con.querySelectorAll('.tl li')];
+  con.classList.add('anim'); items.forEach(li=>li.classList.remove('done'));
+  items.forEach((li,i)=>setTimeout(()=>li.classList.add('show','done'), 250+i*380)); })();
+
+/* ===== Scenarios: deterministic fixtures ===== */
+const SCENARIOS = [
+ { label:"Sales and follow-up",
+   instruction:"Follow up with the leads who asked about our service. Answer their questions, offer an appointment, and flag anyone who needs me.",
+   steps:[
+    ["Contact context","Pulls the history for each example lead who asked about the service: what they asked, when, and on which channel."],
+    ["Permission check","Confirms each lead asked to hear back and hasn't opted out. Anyone without permission is skipped, not contacted."],
+    ["Call or message","Calls or texts each lead with the approved explanation of the offer, matched to how they reached out."],
+    ["Response","An example lead replies with a question about timing, answered from approved business information."],
+    ["Calendar check","Checks the connected calendar against the owner's scheduling rules and offers open times."],
+    ["CRM update","Records the conversation, the offered times, and the next step on each customer."],
+    ["Owner summary","Sends the owner a short brief: who booked, who's still deciding, and who needs a personal call."]],
+   result:"An example lead chose an appointment. Another is still deciding and has a follow-up scheduled. One was skipped because they hadn't asked to be contacted.",
+   decision:"An example lead asked about a custom package that isn't in your approved offers.",
+   options:["Call them yourself","Send an approved reply","Decide later"] },
+ { label:"Customer service",
+   instruction:"Handle routine customer questions while I'm busy. If someone asks for me or needs an exception, bring me in with the details.",
+   steps:[
+    ["Incoming question","An example customer texts to ask about weekend hours and how to reschedule."],
+    ["Approved answer","Answers from the owner's approved hours and rescheduling policy. Nothing is made up."],
+    ["Case record","Logs the question and answer as a service case on the customer's record."],
+    ["Human handoff when needed","A second example customer asks for an exception to the refund policy. Remo stops, says a person will follow up, and hands off.", "handoff"],
+    ["Next step","Sets a reminder on the open case so it isn't forgotten, and closes the routine one."]],
+   result:"Routine questions answered from approved information and recorded. One exception handed to you with the full conversation attached.",
+   decision:"An example customer is requesting a refund outside your policy.",
+   options:["Approve","Decline with a note","Call them"] },
+ { label:"Marketing and research",
+   instruction:"Research ideas for next month's campaign, draft a week of posts in our voice, and send them to me before scheduling.",
+   steps:[
+    ["Sourced research","Gathers current topics relevant to the business and attaches the sources to the task.", "sources"],
+    ["Content brief","Turns the research into a short brief: themes, angles, and what to avoid, based on your brand notes."],
+    ["Branded drafts","Drafts a week of posts in the saved brand voice, with suggested days for each."],
+    ["Owner approval","Sends the drafts to the owner's phone. Nothing is scheduled without approval."],
+    ["Scheduled publishing","Approved posts are queued through the connected Blotato account."],
+    ["Status summary","Reports what's scheduled, what was edited, and what's still waiting on the owner."]],
+   result:"A week of drafts and the sources behind them were ready for review. Approved posts are queued; the rest are waiting on you.",
+   decision:"Two drafts were flagged for your edit before they can be scheduled.",
+   options:["Edit drafts","Approve as-is","Skip them"] }
+];
+const EXTRA = {
+  handoff:`<div class="handoff"><strong>Example handoff</strong>To the customer: “I'm bringing in the owner for this one. They'll have your full conversation and will follow up with you directly.” To the owner: the request, the relevant policy, and the customer's history.</div>`,
+  sources:`<div class="sources" aria-label="Sources (sample placeholders)"><span>Sample source A</span><span>Sample source B</span><span>Sample source C</span></div>`
+};
+(function(){
+  const tl=document.getElementById('scTabs'), pw=document.getElementById('scPanels');
+  const state=SCENARIOS.map(s=>({i:0,timer:null}));
+  tl.innerHTML=SCENARIOS.map((s,k)=>`<button class="tab" role="tab" type="button" id="sct-${k}" aria-controls="scp-${k}" aria-selected="${k===0}" tabindex="${k===0?0:-1}">${esc(s.label)}</button>`).join('');
+  pw.innerHTML=SCENARIOS.map((s,k)=>`
+  <div class="panel" role="tabpanel" id="scp-${k}" aria-labelledby="sct-${k}" ${k?'hidden':''}>
+    <div>
+      <blockquote class="instr"><q>${esc(s.instruction)}</q><cite class="instr-by">Fictional owner's instruction</cite></blockquote>
+      <ol class="steps">${s.steps.map((st,j)=>`<li><span class="sn" aria-hidden="true">${j+1}</span><div><b><span class="sr-only">Step ${j+1}: </span>${esc(st[0])}</b><p>${esc(st[1])}</p>${st[2]?EXTRA[st[2]]:''}</div></li>`).join('')}</ol>
+      <div class="controls">
+        <button class="ctl" type="button" data-act="prev" aria-label="Previous step"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Back</button>
+        <button class="ctl" type="button" data-act="next" aria-label="Next step">Next step<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <button class="ctl" type="button" data-act="all">Show all</button>
+        <button class="ctl" type="button" data-act="replay"><svg aria-hidden="true"><use href="#i-refresh"/></svg>Replay</button>
+        <span class="counter" aria-live="polite"></span>
+      </div>
+    </div>
+    <aside class="owner" aria-label="What the owner sees">
+      <h3>What the owner sees</h3>
+      <div class="owner-body" aria-live="polite"></div>
+    </aside>
+  </div>`).join('');
+  function render(k){
+    const s=SCENARIOS[k], st=state[k], p=document.getElementById('scp-'+k), n=s.steps.length, last=st.i===n-1;
+    p.querySelectorAll('.steps li').forEach((li,j)=>{li.dataset.state=(j<st.i||last)?'done':j===st.i?'current':'todo'; if(j===st.i) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current');});
+    p.querySelector('[data-act=prev]').disabled=st.i===0;
+    p.querySelector('[data-act=next]').disabled=last;
+    p.querySelector('[data-act=all]').disabled=last;
+    p.querySelector('.counter').textContent=`Step ${st.i+1} of ${n}: ${s.steps[st.i][0]}`;
+    p.querySelector('.owner-body').innerHTML = last
+      ? `<p class="res">${esc(s.result)}</p><div class="dec"><b>Still your decision</b><p>${esc(s.decision)}</p><div class="opts">${s.options.map(o=>`<span>${esc(o)}</span>`).join('')}</div></div>`
+      : `<p class="pending">In progress: step ${st.i+1} of ${n}. When the steps finish, the owner gets a summary and any decision that's still theirs to make.</p>`;
+  }
+  function stop(k){clearInterval(state[k].timer);state[k].timer=null;}
+  pw.addEventListener('click',e=>{const b=e.target.closest('[data-act]'); if(!b) return; const k=+b.closest('.panel').id.split('-')[1], st=state[k], n=SCENARIOS[k].steps.length;
+    stop(k);
+    if(b.dataset.act==='prev') st.i=Math.max(0,st.i-1);
+    if(b.dataset.act==='next') st.i=Math.min(n-1,st.i+1);
+    if(b.dataset.act==='all') st.i=n-1;
+    if(b.dataset.act==='replay'){ st.i=0; if(!reduce){ st.timer=setInterval(()=>{ if(st.i>=n-1){stop(k);return;} st.i++; render(k);},1100);} else st.i=n-1; }
+    render(k);});
+  const tabs=[...tl.querySelectorAll('[role=tab]')];
+  function select(k,focus){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===k);t.tabIndex=j===k?0:-1;document.getElementById('scp-'+j).hidden=j!==k;}); if(focus) tabs[k].focus();}
+  tabs.forEach((t,k)=>{t.addEventListener('click',()=>select(k));
+    t.addEventListener('keydown',e=>{let j=null; if(e.key==='ArrowRight')j=(k+1)%tabs.length; if(e.key==='ArrowLeft')j=(k-1+tabs.length)%tabs.length; if(e.key==='Home')j=0; if(e.key==='End')j=tabs.length-1; if(j!==null){e.preventDefault();select(j,true);}});});
+  // Start complete so the owner's result is visible; Replay or Back steps through.
+  SCENARIOS.forEach((_,k)=>{state[k].i=SCENARIOS[k].steps.length-1; render(k);});
+})();
+
+/* ===== Phone preview tabs (vertical) ===== */
+(function(){const tabs=[...document.querySelectorAll('.vtab')];
+  function sel(k,f){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===k);t.tabIndex=j===k?0:-1;document.getElementById('vp-'+j).hidden=j!==k;}); if(f)tabs[k].focus();}
+  tabs.forEach((t,k)=>{t.addEventListener('click',()=>sel(k));t.addEventListener('keydown',e=>{let j=null;
+    if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(k+1)%tabs.length; if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(k-1+tabs.length)%tabs.length; if(e.key==='Home')j=0; if(e.key==='End')j=tabs.length-1;
+    if(j!==null){e.preventDefault();sel(j,true);}});});})();
+
+/* ===== FAQ (16 answers) ===== */
+const FAQ = [
+ ["Who is RemoBlue for?","Business owners across industries who want connected help with customer communication and with following work through to done. We'll talk through fit on your intro call. Specialized requirements in your field are evaluated individually rather than assumed."],
+ ["Is the full platform available today?","Not yet. RemoBlue is being developed and tested. Intro calls are for discussing your needs, how a setup would be configured, and pilot availability."],
+ ["What can I ask it to do?","Examples include following up with leads, answering routine customer questions, researching a topic, coordinating appointments, drafting marketing, organizing email, keeping customer records, and remembering next steps. What it can actually carry out depends on the tools you connect and the permissions you agree to."],
+ ["Can I interact with it from my phone?","That's the plan. The owner experience is designed for spoken and typed instructions in a mobile-friendly workspace, so you can give direction, review decisions, and check progress from your phone."],
+ ["Do I get a business phone number?","The proposed setup includes a dedicated voice-and-SMS number powered by Twilio. Number availability and the required messaging registration are confirmed during setup. If you'd like to use an existing number, those options are assessed separately."],
+ ["Will that number send blue iMessages?","No. Calls and SMS run through the Twilio business number. The proposed iMessage setup uses a separate Apple Account identity, typically an email address, on the configured Mac mini. Conversations from both can sit in the same customer history in RemoBlue, but customers will see different senders."],
+ ["Can it message Android users?","Twilio SMS is intended for compatible recipients, including Android phones. iMessage is a separate channel for eligible Apple recipients. RemoBlue doesn't silently switch a conversation from one channel to the other, and no channel can promise that every message is delivered."],
+ ["Why is a Mac mini part of the setup?","The Mac mini supports the proposed local Apple messaging connection. The hosted RemoBlue service runs the assistant itself and keeps your records. Compatibility is validated during setup."],
+ ["What happens if the Mac or the internet goes offline?","Apple messaging may pause until the Mac or its connection is back, and it may need recovery. Cloud channels such as calls, SMS, and email are kept separate so they can continue when their own services are working. We don't promise uninterrupted uptime."],
+ ["Can a customer speak with a person?","Yes. Human handoff and escalation destinations, meaning who gets brought in and when, are configured as part of your setup. RemoBlue is an AI assistant, not a human employee."],
+ ["Does it send or publish without asking?","Only if you've agreed it can. You choose what requires your approval and what can run within agreed rules. Contact permissions, account requirements, and provider limits still apply to everything it does."],
+ ["Does it have a CRM?","A native CRM is part of the planned platform. It's designed to keep customer records, opportunities, service cases, conversations, and next steps together. Its current status is planned."],
+ ["How does marketing work?","RemoBlue is designed to prepare branded content in your voice and coordinate approved publishing through your connected Blotato account. The platforms you can publish to and the subscriptions required are confirmed during setup."],
+ ["How is my business information handled?","RemoBlue works through the access you grant to connected accounts, within the permissions your business sets. The assistant and records are hosted, while the proposed Apple messaging connection runs on the local Mac mini. Detailed data handling will be documented in the privacy policy once it's approved."],
+ ["How much does it cost, and how long does setup take?","It depends on the hardware, account connections, usage, and support your business needs. A quote and schedule follow discovery, once your accounts are ready."],
+ ["What should I bring to the intro call?","Two or three tasks you'd like off your plate, the tools you use today, and a rough sense of your call and message volume. You don't need passwords or customer data to book."]
+];
+(function(){const l=document.getElementById('faqList');
+  l.innerHTML=FAQ.map((f,i)=>`<div class="faq-item"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-${i}" id="fq-${i}"><span class="i" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><span>${esc(f[0])}</span></button></h3><div class="faq-a" id="fa-${i}" role="region" aria-labelledby="fq-${i}" hidden><p>${esc(f[1])}</p></div></div>`).join('');
+  const qs=()=>[...l.querySelectorAll('.faq-q')];
+  function set(b,o){b.setAttribute('aria-expanded',o);document.getElementById(b.getAttribute('aria-controls')).hidden=!o;}
+  l.addEventListener('click',e=>{const b=e.target.closest('.faq-q'); if(b) set(b,b.getAttribute('aria-expanded')!=='true');});
+  l.addEventListener('keydown',e=>{const b=e.target.closest('.faq-q'); if(!b)return; const a=qs(),i=a.indexOf(b); let j=null;
+    if(e.key==='ArrowDown')j=(i+1)%a.length; if(e.key==='ArrowUp')j=(i-1+a.length)%a.length; if(e.key==='Home')j=0; if(e.key==='End')j=a.length-1; if(j!==null){e.preventDefault();a[j].focus();}});
+  set(qs()[0],true);
+  window.__openAllFaq=()=>qs().forEach(b=>set(b,true));
+})();
+
+</script>
+</body>
+</html>
