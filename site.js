@@ -65,4 +65,5 @@ if (requestForm) {
       document.querySelector('#copy-status').textContent = 'Select and copy the request above, then email it to remo@remogroup.ai.';
     }
   });
+  document.querySelector('#request-fields').disabled = false;
 }
