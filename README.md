@@ -27,3 +27,9 @@ This static site has no submission backend or booking calendar. The visitor prep
 ## Verification and deployment
 
 Run `node --check site.js`, check local links and anchors, and verify desktop/mobile rendering, all industry choices, request preselection, and draft preparation in the browser. Keep `CNAME` and `.nojekyll` intact. Push the reviewed changes to the existing publishing branch and verify the GitHub Pages deployment and public assets.
+
+## Phone-to-humanoid hero
+
+`hero-morph.js` restores the original code-rendered phone concept as RemoGM. A seven-second, one-pass sequence places the phone over the chest bezel in the approved artwork and reveals the humanoid. It uses the native Web Animations API; the existing WebP images are reused, with no video or animation dependencies. The phone mockup and humanoid are illustrative.
+
+Pause/resume and replay controls are keyboard-accessible. The sequence starts when its stage is visible, pauses offscreen or in a background tab, and recalculates chest alignment on resize. Reduced motion, disabled JavaScript, and `?motion=off` use the static phone-and-humanoid composition. The visible Still view link uses that same fallback. Main messaging and calls to action remain stationary.
