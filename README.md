@@ -33,3 +33,9 @@ Run `node --check site.js`, check local links and anchors, and verify desktop/mo
 `hero-morph.js` restores the original code-rendered phone concept as RemoGM. A twenty-second repeating cycle places the phone over the chest bezel in the approved artwork, holds on the humanoid for ten seconds, then brings the phone back out. Both ends of the loop share the same phone pose, avoiding a visible reset. It uses the native Web Animations API; the existing WebP images are reused, with no video or animation dependencies. The phone mockup and humanoid are illustrative.
 
 Pause/resume and replay controls are keyboard-accessible. The loop starts when its stage is visible, pauses offscreen or in a background tab, and preserves its position while recalculating chest alignment on resize. Reduced motion, disabled JavaScript, and `?motion=off` use the static phone-and-humanoid composition. The visible Still view link uses that same fallback. Main messaging and calls to action remain stationary.
+
+## Technology overview
+
+`technology/index.html` publishes the public architecture direction at `/technology/` (`/technology` redirects to the directory). `technology.css` contains its responsive presentation; the page uses the shared navigation script and approved humanoid asset. The homepage and demo request link to it, and the sitemap includes its canonical URL.
+
+The October 18, 2026 progress statement comes from the owner's confirmation that humanoid engineering coordination with a manufacturer is underway. It does not name a manufacturer, claim a formal partnership, or assert hardware validation. Later milestones and the retail scenario are explicitly prospective. Controls are design requirements; the relationship between RemoGM and RemoBOTx is proposed. The page contains no private interfaces, prompts, credentials, or partner documents. Update dated milestones only when supporting evidence is available.
