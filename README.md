@@ -4,7 +4,7 @@ Static HTML, CSS, and JavaScript published through GitHub Pages at https://remob
 
 ## RemoGM positioning
 
-The homepage introduces RemoGM, includes the owner-provided general-manager definition with an adapted-from Investopedia link, and presents seven illustrative industry packages. Industry examples are marked as examples; configured pilot availability is explained before commitment. No customer outcomes or testimonials are fabricated.
+The homepage introduces RemoGM, includes the owner-provided general-manager definition with an adapted-from Investopedia link, and presents eight illustrative industry packages. Industry examples are marked as examples; configured pilot availability is explained before commitment. No customer outcomes or testimonials are fabricated.
 
 ## Files
 
