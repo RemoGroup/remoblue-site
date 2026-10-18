@@ -1,4 +1,4 @@
-# RemoBlue marketing site
+# RemoGM™ marketing site
 
 Static HTML, CSS, and JavaScript published through GitHub Pages at https://remoblue.com. No build or dependencies required.
 

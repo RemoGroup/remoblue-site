@@ -157,3 +157,6 @@
  .morph-summary{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.morph-controls{display:none}}
+
+/* Keep the trademark readable without changing the wordmark baseline. */
+.logo .trademark{font-size:.42em;line-height:0;vertical-align:super;margin-left:2px;letter-spacing:0;color:var(--text)}
