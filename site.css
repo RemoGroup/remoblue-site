@@ -160,3 +160,9 @@
 
 /* Keep the trademark readable without changing the wordmark baseline. */
 .logo .trademark{font-size:.42em;line-height:0;vertical-align:super;margin-left:2px;letter-spacing:0;color:var(--text)}
+
+/* Technology discovery and room for the expanded navigation. */
+.technology-discovery{display:flex;justify-content:flex-end;padding-top:0;padding-bottom:20px}
+.technology-discovery .text-link{color:#b8d3ff}
+@media(max-width:940px){.desktop-nav{display:none}.header-cta{margin-left:auto}.menu-toggle{display:block;margin-left:auto}}
+@media(max-width:520px){.technology-discovery{justify-content:center;padding-bottom:15px}.technology-discovery .text-link{font-size:12px}.header-cta+.menu-toggle{margin-left:0}}
