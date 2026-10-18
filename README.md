@@ -1,6 +1,6 @@
 # RemoGM™ marketing site
 
-Static HTML, CSS, and JavaScript published through GitHub Pages at https://remoblue.com. No build or dependencies required.
+Static HTML, CSS, and JavaScript published through GitHub Pages at https://remogm.com. No build or dependencies required.
 
 ## RemoGM positioning
 

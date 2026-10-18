@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /legal.html
 
-Sitemap: https://remoblue.com/sitemap.xml
+Sitemap: https://remogm.com/sitemap.xml
