@@ -1,0 +1,481 @@
+<!doctype html>
+<!--
+  PLACEHOLDERS TO COMPLETE BEFORE RELYING ON THIS PAGE (shown highlighted on the page):
+  - [State of organization]
+  - [Legal contact email]
+  - [Governing law state]
+  - [Mailing address]
+  - [Arbitration provider]
+  - [Arbitration venue]
+  Have this document reviewed by qualified counsel before treating it as final.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#07111F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07111F; --ink2:#0D1D32; --ink3:#12263F; --line:rgba(168,183,203,.18); --line2:rgba(168,183,203,.30);
+  --blue:#3478FF; --blue-hi:#6EA2FF; --paper:#F5F7FB; --silver:#A8B7CB; --teal:#3FD1B8; --teal-ink:#0E7C6B;
+  --text:#EAF0F8; --muted:#A8B7CB; --ptext:#0B1A2E; --pmuted:#46566C;
+  --display:"Inter Tight","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --r:14px; --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--ink);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.04;font-weight:600;text-wrap:balance}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--paper);color:var(--ptext);padding:12px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--blue-hi);outline-offset:3px;border-radius:6px}
+.light :focus-visible{outline-color:#1D5BDB}
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(7,17,31,.86);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 21px/1 var(--display);letter-spacing:-.03em;min-height:44px}
+.logo svg{width:30px;height:30px}
+.logo .remo{color:var(--text)} .logo .blue{color:#4C8DFF}
+.light .logo .remo{color:#0B1A3A} .light .logo .blue{color:var(--blue)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--silver);text-decoration:none;font-size:15px;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:10px}
+.nav a:hover{color:var(--text);background:rgba(168,183,203,.08)}
+.header-cta{margin-left:8px}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border-radius:10px;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.mobile-menu{display:none}
+@media (max-width:920px){
+  .nav,.header-cta.desk{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-menu{border-top:1px solid var(--line);padding:8px 20px 20px}
+  .mobile-menu[data-open=true]{display:block}
+  .mobile-menu a:not(.btn){display:flex;align-items:center;min-height:48px;color:var(--text);text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:16px;width:100%}
+}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px -10px rgba(52,120,255,.7)}
+.btn-primary:hover{background:#2766E6}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--silver)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.light .btn-ghost{color:var(--ptext);border-color:rgba(11,26,46,.25)}
+/* labels */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-hi)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+.light .eyebrow{color:#1D5BDB}
+.tag-illus{display:inline-flex;align-items:center;gap:7px;font:600 11.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#FFD58A;background:rgba(242,181,68,.10);border:1px solid rgba(242,181,68,.35);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.tag-illus::before{content:"";width:6px;height:6px;border-radius:50%;background:#F2B544}
+.light .tag-illus{color:#7A4A00;background:#FFF3DC;border-color:#E9C27A}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--silver);white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+.chip[data-status=pilot]{color:var(--teal);border-color:rgba(63,209,184,.45);background:rgba(63,209,184,.07)}
+.chip[data-status=planned]{color:var(--silver)}
+.light .chip[data-status=planned]{color:#4A5A70;border-color:rgba(11,26,46,.22)}
+.light .chip[data-status=pilot]{color:var(--teal-ink);border-color:rgba(14,124,107,.4);background:rgba(14,124,107,.06)}
+/* footer */
+.site-footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--ink)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.site-footer p{color:var(--muted);font-size:15px;max-width:40ch;margin-top:16px}
+.site-footer h2{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:12px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:var(--text);text-decoration:none;font-size:15px}
+.site-footer li a:hover{text-decoration:underline}
+.foot-base{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>:first-child{grid-column:1/-1}}
+[hidden]{display:none!important}
+
+
+/* legal pages */
+.legal-hero{padding:clamp(56px,8vw,104px) 0 clamp(32px,4vw,48px);border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 15% 0%,rgba(52,120,255,.14),transparent 70%),var(--ink)}
+.legal-hero h1{font-size:clamp(2.4rem,6vw,4.4rem);margin:18px 0 18px}
+.legal-hero .lede{color:var(--muted);font-size:clamp(17px,1.6vw,19px);max-width:62ch;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:24px;color:var(--silver);font-size:14.5px}
+.meta-row .dot{width:4px;height:4px;border-radius:50%;background:var(--line2)}
+@media (max-width:640px){.meta-row .dot{display:none}}
+.legal-body{padding:clamp(40px,6vw,72px) 0 clamp(64px,9vw,120px)}
+.legal-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1080px){.legal-grid{grid-template-columns:260px minmax(0,72ch);gap:72px;justify-content:start}}
+.toc{border:1px solid var(--line);border-radius:var(--r);background:var(--ink2);padding:20px 20px 14px}
+@media (min-width:1080px){.toc{position:sticky;top:92px;max-height:calc(100vh - 116px);overflow:auto}}
+.toc h2{font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-hi);margin:0 0 12px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li a{display:flex;gap:10px;padding:7px 0;color:var(--silver);text-decoration:none;font-size:14.5px;line-height:1.35;border-radius:6px}
+.toc li a span{color:var(--muted);opacity:.7;min-width:1.6em;font-variant-numeric:tabular-nums}
+.toc li a:hover{color:var(--text)}
+.toc li a[aria-current=true]{color:var(--text)}
+@media (max-width:1079px){.toc ol{columns:2;column-gap:32px}.toc li{break-inside:avoid}}
+@media (max-width:640px){.toc ol{columns:1}}
+.prose{max-width:72ch;min-width:0;overflow-wrap:break-word}
+.prose section{scroll-margin-top:92px}
+.prose h2{font-size:clamp(1.45rem,2.4vw,1.85rem);line-height:1.15;margin:56px 0 16px;padding-top:32px;border-top:1px solid var(--line)}
+.prose section:first-of-type h2{margin-top:0;padding-top:0;border-top:0}
+.prose .callout + section h2{margin-top:40px}
+.prose h2 .n{color:var(--blue-hi);margin-right:.35em;font-variant-numeric:tabular-nums}
+.prose h3{font-size:1.12rem;line-height:1.3;letter-spacing:-.01em;margin:30px 0 10px;color:var(--text)}
+.prose p,.prose li{color:#C4D0DF;font-size:16.5px;line-height:1.72}
+.prose strong{color:var(--text);font-weight:600}
+.prose ul{margin:0 0 1.2em;padding-left:1.25em}
+.prose li{margin:0 0 .6em;padding-left:.2em}
+.prose li::marker{color:var(--blue-hi)}
+.prose a{color:var(--blue-hi);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.prose a:hover{color:#9CC0FF}
+.prose .caps{font-size:14.5px;line-height:1.7;letter-spacing:.01em;color:#C4D0DF}
+.callout{border:1px solid rgba(110,162,255,.35);background:rgba(52,120,255,.08);border-radius:12px;padding:16px 18px;margin:0 0 1.4em}
+.callout p{margin:0}
+.contact-card{font-style:normal;border:1px solid var(--line);background:var(--ink2);border-radius:var(--r);padding:20px 22px;color:#C4D0DF;line-height:1.8}
+mark.ph{background:rgba(242,181,68,.14);color:#FFD58A;border:1px dashed rgba(242,181,68,.7);border-radius:5px;padding:0 .3em;font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.table-wrap{margin:8px 0 1.4em;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.prose table{width:100%;border-collapse:collapse;font-size:15px}
+.prose th,.prose td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line);color:#C4D0DF;line-height:1.5}
+.prose th{background:var(--ink2);color:var(--silver);font:600 12.5px/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase}
+.prose td:first-child{color:var(--text);font-weight:600}
+.prose tr:last-child td{border-bottom:0}
+@media (max-width:640px){
+  .prose thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .prose table,.prose tbody,.prose tr,.prose td{display:block;width:100%}
+  .prose tr{border-bottom:1px solid var(--line);padding:6px 0}
+  .prose tr:last-child{border-bottom:0}
+  .prose td{border:0;padding:6px 16px}
+  .prose td::before{content:attr(data-label);display:block;font:600 11.5px/1.4 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:2px}
+}
+.back-top{margin-top:48px}
+</style>
+<title>Terms of Service | RemoBlue</title>
+<meta name="description" content="The terms that govern use of the RemoBlue website and managed AI executive assistant service, operated by RemoGroup.ai.">
+<link rel="canonical" href="https://remoblue.com/terms">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RemoBlue">
+<meta property="og:url" content="https://remoblue.com/terms">
+<meta property="og:title" content="Terms of Service | RemoBlue">
+<meta property="og:description" content="The terms that govern use of the RemoBlue website and managed AI executive assistant service, operated by RemoGroup.ai.">
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rbLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E40AF"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+    <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#06B6D4"/></linearGradient>
+  </defs>
+  <symbol id="rb-mark" viewBox="0 0 64 64">
+    <path d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#1E3A8A"/>
+    <path d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#1D4ED8"/>
+    <path d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#2563EB"/>
+    <path d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#3B82F6"/>
+    <path d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#06B6D4"/>
+    <path d="M7.75 46 7.75 18 20.74 25.5 20.74 38.5Z" fill="url(#rbLeft)"/>
+    <path d="M7.75 18 32 4 32 19Z" fill="#0B1530" opacity=".35"/>
+    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#93C5FD" opacity=".45"/>
+    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#38BDF8" opacity=".45"/>
+    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#1E3A8A" opacity=".25"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#how">How it works</a>
+      <a href="/#handles">What it handles</a>
+      <a href="/#setup">Your setup</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta desk" href="/book.html">Book an intro call</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" data-open="false" aria-label="Mobile">
+    <a href="/#how">How it works</a>
+    <a href="/#handles">What it handles</a>
+    <a href="/#setup">Your setup</a>
+    <a href="/#faq">FAQ</a>
+    <a class="btn btn-primary" href="/book.html">Book an intro call</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="legal-hero" aria-labelledby="page-h">
+  <div class="wrap">
+    <span class="eyebrow">Legal</span>
+    <h1 id="page-h">Terms of Service</h1>
+    <p class="lede">These Terms govern your use of the RemoBlue website and the RemoBlue managed AI executive assistant service.</p>
+    <p class="meta-row"><span>Last updated: <time datetime="2026-10-17">October 17, 2026</time></span><span class="dot" aria-hidden="true"></span><span>RemoBlue is owned and operated by RemoGroup.ai, a limited liability company.</span></p>
+  </div>
+</section>
+<div class="legal-body">
+  <div class="wrap legal-grid">
+    <nav class="toc" aria-labelledby="toc-h">
+      <h2 id="toc-h">On this page</h2>
+      <ol>
+      <li><a href="#acceptance"><span>1.</span>Agreement to these Terms</a></li>
+      <li><a href="#eligibility"><span>2.</span>Eligibility</a></li>
+      <li><a href="#changes"><span>3.</span>Changes to these Terms</a></li>
+      <li><a href="#the-service"><span>4.</span>Description of the Service</a></li>
+      <li><a href="#pilot"><span>5.</span>Pilot, beta, and evaluation features</a></li>
+      <li><a href="#accounts"><span>6.</span>Accounts and access</a></li>
+      <li><a href="#customer-responsibilities"><span>7.</span>Your responsibilities for communications compliance</a></li>
+      <li><a href="#acceptable-use"><span>8.</span>Acceptable use</a></li>
+      <li><a href="#third-party-services"><span>9.</span>Third-party services</a></li>
+      <li><a href="#ai-output"><span>10.</span>AI outputs and human review</a></li>
+      <li><a href="#fees"><span>11.</span>Fees and payment</a></li>
+      <li><a href="#customer-data"><span>12.</span>Customer data</a></li>
+      <li><a href="#feedback"><span>13.</span>Feedback</a></li>
+      <li><a href="#intellectual-property"><span>14.</span>Intellectual property</a></li>
+      <li><a href="#confidentiality"><span>15.</span>Confidentiality</a></li>
+      <li><a href="#disclaimers"><span>16.</span>Disclaimer of warranties</a></li>
+      <li><a href="#limitation"><span>17.</span>Limitation of liability</a></li>
+      <li><a href="#indemnification"><span>18.</span>Indemnification</a></li>
+      <li><a href="#term-termination"><span>19.</span>Term, suspension, and termination</a></li>
+      <li><a href="#governing-law"><span>20.</span>Governing law</a></li>
+      <li><a href="#disputes"><span>21.</span>Dispute resolution: binding arbitration and class-action waiver</a></li>
+      <li><a href="#general"><span>22.</span>General provisions</a></li>
+      <li><a href="#contact"><span>23.</span>Contact us</a></li>
+      </ol>
+    </nav>
+    <article class="prose" aria-labelledby="page-h">
+<div class="callout"><p><strong>Please read these Terms carefully.</strong> They include a binding arbitration agreement and class-action waiver in <a href="#disputes">Section 21</a> that affect how disputes are resolved, and you may opt out within 30 days as described there. They also include disclaimers of warranties and limitations of liability in <a href="#disclaimers">Section 16</a> and <a href="#limitation">Section 17</a>.</p></div>
+
+<section id="acceptance" aria-labelledby="acc-h">
+<h2 id="acc-h"><span class="n">1.</span> Agreement to these Terms</h2>
+<p>RemoBlue is owned and operated by RemoGroup.ai, a limited liability company organized under the laws of <mark class="ph">[State of organization]</mark> (“<strong>RemoGroup.ai</strong>,” “<strong>we</strong>,” “<strong>us</strong>,” or “<strong>our</strong>”). These Terms of Service (“<strong>Terms</strong>”) govern your access to and use of our website at remoblue.com (the “<strong>Site</strong>”) and the RemoBlue managed AI executive assistant service, including related setup, onboarding, support, software, and documentation (together with the Site, the “<strong>Service</strong>”).</p>
+<p>By accessing or using the Service, requesting an intro call, or signing an order form, proposal, statement of work, or similar document that references these Terms (an “<strong>Order</strong>”), you agree to these Terms. If you use the Service on behalf of a business or other organization, “<strong>you</strong>” and “<strong>Customer</strong>” refer to that organization, and you represent that you have authority to bind it. If you do not agree to these Terms, do not use the Service.</p>
+<p>If you and we have signed a separate written agreement covering the Service, that agreement controls to the extent it conflicts with these Terms. If an Order conflicts with these Terms, the Order controls only for the conflicting subject matter of that Order. Our <a href="/privacy">Privacy Policy</a> explains how we handle personal information.</p>
+</section>
+
+<section id="eligibility" aria-labelledby="elig-h">
+<h2 id="elig-h"><span class="n">2.</span> Eligibility</h2>
+<p>The Service is intended for business and professional use only, not for personal, family, or household purposes. You may use the Service only if you are at least 18 years old, have the legal capacity to enter into a binding contract, are not barred from using the Service under applicable law, and, if acting for an organization, are authorized to accept these Terms on its behalf.</p>
+</section>
+
+<section id="changes" aria-labelledby="chg-h">
+<h2 id="chg-h"><span class="n">3.</span> Changes to these Terms</h2>
+<p>We may modify these Terms from time to time. When we do, we will update the “Last updated” date above. If a change is material, we will give reasonable advance notice, such as by posting on the Site or by email to the account administrator. Changes take effect on the date stated in the notice and apply going forward. Your continued use of the Service after a change takes effect constitutes acceptance. If you do not agree to a change, you must stop using the Service. Changes will not apply retroactively, and a change to <a href="#disputes">Section 21</a> will not apply to a dispute of which we had actual notice before the change took effect. Fees and other terms fixed in an Order for its then-current term will not change except as stated in that Order.</p>
+</section>
+
+<section id="the-service" aria-labelledby="svc-h">
+<h2 id="svc-h"><span class="n">4.</span> Description of the Service</h2>
+<p>RemoBlue is a managed AI executive assistant being developed for businesses. It is designed to help with calls, messages, email, appointments, research, marketing, customer records, and follow-up, as configured for each Customer. The Service is in development and pilot stages. Features, integrations, and availability may differ by Customer and may be added, changed, limited, or discontinued at any time.</p>
+<p>Product previews, screenshots, example conversations, workflows, and other depictions on the Site are illustrative and do not represent commitments, guaranteed functionality, or results. The features, deliverables, and any service commitments that apply to you are only those expressly stated in your Order.</p>
+</section>
+
+<section id="pilot" aria-labelledby="pilot-h">
+<h2 id="pilot-h"><span class="n">5.</span> Pilot, beta, and evaluation features</h2>
+<p>We may offer access to features or services identified as pilot, beta, preview, early access, evaluation, or similar (“<strong>Pilot Features</strong>”). Pilot Features are provided for evaluation, may be incomplete or contain errors, may be changed or discontinued without notice, and may be subject to additional terms in your Order. Unless your Order states otherwise, Pilot Features are provided “AS IS” without any warranty, support, or service-level commitment, and our total liability for Pilot Features is subject to <a href="#limitation">Section 17</a>. You should not rely on Pilot Features for critical or emergency communications.</p>
+</section>
+
+<section id="accounts" aria-labelledby="acct-h">
+<h2 id="acct-h"><span class="n">6.</span> Accounts and access</h2>
+<p>You may need an account to use parts of the Service. You agree to provide accurate and complete information and to keep it up to date. You are responsible for all activity under your account and those of your authorized users; for maintaining the confidentiality of credentials; for configuring user permissions, approval rules, and escalation contacts; and for ensuring that your authorized users comply with these Terms. Notify us promptly at <mark class="ph">[Legal contact email]</mark> if you become aware of any unauthorized access to or use of your account. When you connect a third-party account to the Service, you authorize us to access and use it as needed to provide the Service in accordance with the permissions you grant.</p>
+</section>
+
+<section id="customer-responsibilities" aria-labelledby="resp-h">
+<h2 id="resp-h"><span class="n">7.</span> Your responsibilities for communications compliance</h2>
+<p>The Service can place and answer calls and send messages and email on your behalf. <strong>You are the sender of those communications</strong> and are solely responsible for ensuring that your use of the Service, and every communication sent or received through it at your direction or under rules you configure, complies with all applicable laws, regulations, and third-party requirements. Without limitation, you are responsible for:</p>
+<ul>
+<li>complying with the Telephone Consumer Protection Act, the Telemarketing Sales Rule, the CAN-SPAM Act, and similar federal, state, and international laws governing calls, texts, email, and recording;</li>
+<li>obtaining and documenting all consents required before contacting any person, including prior express written consent where required for marketing calls or texts using automated technology or artificial or prerecorded voices;</li>
+<li>honoring opt-out requests (including STOP and similar keywords) and maintaining and checking internal and national do-not-call lists as required;</li>
+<li>complying with calling-time restrictions, caller identification requirements, and any requirements to disclose that a caller or messenger is an AI or automated system;</li>
+<li>obtaining any consent required to record, monitor, or transcribe calls and messages, including in all-party-consent jurisdictions;</li>
+<li>complying with wireless carrier and industry requirements, including A2P 10DLC brand and campaign registration, toll-free verification, CTIA messaging principles and guidelines, and content restrictions;</li>
+<li>complying with Apple’s terms, guidelines, and policies applicable to any Apple Account, device, or Apple messaging service used with the Service; and</li>
+<li>providing any required privacy notices to your customers and contacts and having a lawful basis to provide their personal information to us.</li>
+</ul>
+<p>We may suspend or limit messaging or calling, or decline to send communications, if we reasonably believe they may violate law or third-party requirements or create risk for us, our providers, or others. We do not provide legal advice, and any guidance we provide about compliance is not a substitute for advice from your own counsel.</p>
+</section>
+
+<section id="acceptable-use" aria-labelledby="aup-h">
+<h2 id="aup-h"><span class="n">8.</span> Acceptable use</h2>
+<p>You will not, and will not permit anyone else to:</p>
+<ul>
+<li>use the Service to send spam, unsolicited bulk messages, or communications without required consent, or to engage in deceptive, harassing, threatening, defamatory, or fraudulent conduct;</li>
+<li>impersonate any person or entity, misrepresent your identity or affiliation, or spoof caller ID or sender information;</li>
+<li>use the Service in connection with illegal content or activity, or with content that is prohibited by applicable carrier, platform, or provider policies;</li>
+<li>use the Service for emergency services communications, or rely on it to contact or replace emergency services;</li>
+<li>upload or transmit malware, or interfere with or disrupt the integrity, security, or performance of the Service or any third-party system;</li>
+<li>attempt to gain unauthorized access to the Service, other accounts, or related systems, or bypass any usage limits, security, or access controls;</li>
+<li>reverse engineer, decompile, or attempt to derive source code, models, or underlying components of the Service, except to the extent this restriction is prohibited by law;</li>
+<li>copy, resell, sublicense, or provide the Service to third parties, or use it to build a competing product or service, except as expressly permitted in an Order;</li>
+<li>scrape, crawl, or harvest data from the Service, or use automated means to access it other than through interfaces we provide;</li>
+<li>process sensitive data that requires heightened legal protections, such as protected health information, payment card data, or government identification numbers, unless expressly permitted in an Order; or</li>
+<li>use the Service in violation of any applicable law, including export control and sanctions laws.</li>
+</ul>
+</section>
+
+<section id="third-party-services" aria-labelledby="tps-h">
+<h2 id="tps-h"><span class="n">9.</span> Third-party services</h2>
+<p>The Service may rely on, interoperate with, or enable access to products and services provided by third parties, such as Twilio for voice and SMS; Apple devices, Apple Accounts, and Apple messaging services; Blotato for social-media publishing; email and calendar providers; and AI infrastructure providers (“<strong>Third-Party Services</strong>”). Third-Party Services are governed by their own terms and privacy policies, which you may be required to accept, and you are responsible for complying with them and for any fees they charge unless your Order states otherwise.</p>
+<p>We do not control and are not responsible for Third-Party Services, including their availability, security, accuracy, policies, or changes. A provider may suspend, restrict, change, or discontinue its services or our access to them, which may affect the Service. We are not liable for any such action or for any loss arising from your use of Third-Party Services. Your use of a Third-Party Service with the Service authorizes us to exchange data with that provider as needed to provide the Service.</p>
+</section>
+
+<section id="ai-output" aria-labelledby="ai-h">
+<h2 id="ai-h"><span class="n">10.</span> AI outputs and human review</h2>
+<p>The Service uses artificial intelligence to generate, summarize, transcribe, classify, and act on content (“<strong>Output</strong>”). AI technology is probabilistic and can produce Output that is inaccurate, incomplete, outdated, inappropriate, or not unique. You acknowledge that:</p>
+<ul>
+<li>Output does not reflect the views of RemoGroup.ai and is not professional advice, including legal, financial, tax, medical, or other professional advice;</li>
+<li>you are responsible for evaluating Output for accuracy and suitability before relying on it, and for configuring which actions require your review and approval;</li>
+<li>you are responsible for Output that is sent, published, or acted upon under your instructions or approval rules; and</li>
+<li>the Service should not be used to make decisions that produce legal or similarly significant effects about individuals without meaningful human review.</li>
+</ul>
+<p>As between you and us, and to the extent permitted by law, you own the Output generated for you, subject to these Terms and the rights of third parties in any underlying content.</p>
+</section>
+
+<section id="fees" aria-labelledby="fees-h">
+<h2 id="fees-h"><span class="n">11.</span> Fees and payment</h2>
+<p>Fees for the Service, including any setup, hardware, subscription, usage, or support fees, are as stated in your Order or proposal. Unless the Order states otherwise: fees are invoiced in advance; invoices are due within the period stated in the Order; fees are non-refundable except as required by law or expressly stated in the Order; and fees exclude taxes, which you are responsible for (other than taxes on our net income). Pass-through costs from Third-Party Services, such as telephone numbers, carrier and registration fees, and messaging or usage charges, may be billed as stated in your Order. We may suspend the Service if undisputed amounts remain unpaid after we give you notice and a reasonable opportunity to pay. Any fee changes will be communicated in advance and take effect as described in your Order.</p>
+</section>
+
+<section id="customer-data" aria-labelledby="cd-h">
+<h2 id="cd-h"><span class="n">12.</span> Customer data</h2>
+<p>“<strong>Customer Data</strong>” means data, content, and information that you, your authorized users, or your contacts submit to or make available through the Service, including communications, records, and connected-account data, and the Output generated for you. As between you and us, you retain all rights in Customer Data.</p>
+<p>You grant us and our service providers a worldwide, non-exclusive, royalty-free license to host, copy, process, transmit, display, and otherwise use Customer Data as necessary to provide, secure, support, and maintain the Service, to prevent or address technical or security issues, and as required by law. We may also collect and use data about the operation and use of the Service, and aggregated or de-identified data that does not identify you or any individual, to operate, analyze, and improve our products and services. We do not use Customer Data to train generalized AI models offered to others unless you agree.</p>
+<p>You represent and warrant that you have all rights, consents, and notices necessary for us to process Customer Data as contemplated by these Terms, and that Customer Data and its processing will not violate any law or third-party right. Our handling of personal information is further described in our <a href="/privacy">Privacy Policy</a> and, where applicable, a data processing agreement between us. On termination, we will make Customer Data available for export or delete it as described in your Order, subject to applicable law and routine backup retention.</p>
+</section>
+
+<section id="feedback" aria-labelledby="fb-h">
+<h2 id="fb-h"><span class="n">13.</span> Feedback</h2>
+<p>If you provide suggestions, ideas, or other feedback about the Service (“<strong>Feedback</strong>”), you grant us a perpetual, irrevocable, worldwide, royalty-free, fully paid-up license to use and exploit the Feedback for any purpose without obligation to you. Feedback is provided voluntarily and “AS IS,” and we are not required to use it.</p>
+</section>
+
+<section id="intellectual-property" aria-labelledby="ip-h">
+<h2 id="ip-h"><span class="n">14.</span> Intellectual property</h2>
+<p>The Service, the Site, and all related software, models, workflows, designs, text, graphics, logos, documentation, and other materials, including all improvements and derivative works, and all intellectual property rights in them, are owned by RemoGroup.ai or its licensors and are protected by law. Subject to these Terms and payment of applicable fees, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable right during the term to access and use the Service for your internal business purposes as described in your Order. “RemoBlue,” the RemoBlue logos, and related marks are our trademarks, and you may not use them without our prior written permission. All rights not expressly granted are reserved.</p>
+</section>
+
+<section id="confidentiality" aria-labelledby="conf-h">
+<h2 id="conf-h"><span class="n">15.</span> Confidentiality</h2>
+<p>“<strong>Confidential Information</strong>” means non-public information disclosed by one party (the “discloser”) to the other (the “recipient”) that is marked or identified as confidential or that a reasonable person would understand to be confidential, including Customer Data, pricing, proposals, product plans, and non-public features of the Service. Confidential Information does not include information that is or becomes public through no fault of the recipient; was known to the recipient without restriction before receipt; is independently developed without use of the discloser’s Confidential Information; or is rightfully received from a third party without a duty of confidentiality.</p>
+<p>The recipient will use the discloser’s Confidential Information only to exercise its rights and perform its obligations under these Terms, will not disclose it except to its employees, contractors, service providers, and advisers who need to know it and are bound by confidentiality obligations at least as protective, and will protect it using at least reasonable care. The recipient may disclose Confidential Information if required by law, after giving the discloser reasonable advance notice where legally permitted. These obligations survive for three years after termination, and for trade secrets and Customer Data, for as long as they remain confidential.</p>
+</section>
+
+<section id="disclaimers" aria-labelledby="disc-h">
+<h2 id="disc-h"><span class="n">16.</span> Disclaimer of warranties</h2>
+<p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY LAW, AND EXCEPT AS EXPRESSLY STATED IN AN ORDER, THE SERVICE, PILOT FEATURES, OUTPUT, AND ALL CONTENT AND MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITH ALL FAULTS AND WITHOUT WARRANTIES OF ANY KIND. REMOGROUP.AI AND ITS AFFILIATES, LICENSORS, AND SUPPLIERS EXPRESSLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, AND QUIET ENJOYMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; THAT OUTPUT WILL BE ACCURATE, COMPLETE, OR RELIABLE; THAT ANY CALL, MESSAGE, OR EMAIL WILL BE DELIVERED, ANSWERED, OR RECEIVED; OR THAT THE SERVICE WILL MEET YOUR REQUIREMENTS OR ACHIEVE ANY PARTICULAR RESULT.</p>
+<p>Some jurisdictions do not allow the exclusion of certain warranties, so some of these exclusions may not apply to you.</p>
+</section>
+
+<section id="limitation" aria-labelledby="lol-h">
+<h2 id="lol-h"><span class="n">17.</span> Limitation of liability</h2>
+<p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL REMOGROUP.AI OR ITS AFFILIATES, OR ITS OR THEIR MEMBERS, MANAGERS, OFFICERS, EMPLOYEES, AGENTS, LICENSORS, OR SUPPLIERS, BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, BUSINESS, GOODWILL, OR ANTICIPATED SAVINGS, LOSS OR CORRUPTION OF DATA, OR COST OF SUBSTITUTE GOODS OR SERVICES, ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHERWISE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+<p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE WILL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID TO US FOR THE SERVICE GIVING RISE TO THE CLAIM IN THE TWELVE (12) MONTHS IMMEDIATELY BEFORE THE EVENT GIVING RISE TO LIABILITY, OR (B) ONE HUNDRED U.S. DOLLARS (US$100).</p>
+<p>These limitations apply even if a remedy fails of its essential purpose and reflect an allocation of risk that is an essential basis of the bargain between the parties. Some jurisdictions do not allow the exclusion or limitation of certain damages, so some of these limitations may not apply to you.</p>
+</section>
+
+<section id="indemnification" aria-labelledby="ind-h">
+<h2 id="ind-h"><span class="n">18.</span> Indemnification</h2>
+<p>To the extent permitted by law, you will defend, indemnify, and hold harmless RemoGroup.ai and its affiliates, and its and their members, managers, officers, employees, and agents, from and against any third-party claims, actions, demands, and proceedings, and all related losses, damages, liabilities, fines, penalties, costs, and expenses (including reasonable attorneys’ fees), arising out of or relating to: (a) Customer Data; (b) communications sent, calls placed or recorded, or content published through the Service by you or at your direction or under rules you configure, including any claim under the TCPA, CAN-SPAM, or similar laws; (c) your use of the Service in violation of these Terms, applicable law, or Third-Party Service terms; or (d) your violation of any third-party right. We will give you prompt notice of any claim, reasonable cooperation at your expense, and control of the defense, provided that you may not settle a claim that imposes any obligation or admission on us without our prior written consent. We may participate with counsel of our choice at our own expense.</p>
+</section>
+
+<section id="term-termination" aria-labelledby="term-h">
+<h2 id="term-h"><span class="n">19.</span> Term, suspension, and termination</h2>
+<p>These Terms apply from the date you first access the Service until terminated. Each Order remains in effect for the term stated in it. Either party may terminate an Order as provided in that Order, or on written notice if the other party materially breaches these Terms or the Order and fails to cure the breach within 30 days after receiving notice. If no Order is in effect, you may stop using the Site at any time, and we may suspend or discontinue the Site or your access at any time.</p>
+<p>We may suspend or limit access to the Service immediately, in whole or in part, if we reasonably believe that your use violates these Terms or law, poses a security risk, may harm us, our providers, or others, or is required by a Third-Party Service, carrier, or legal authority. Where reasonable, we will give advance notice and restore access promptly once the issue is resolved.</p>
+<p>Upon termination, your right to use the Service ends, any unpaid fees for services performed through the effective date become due, and each party will return or destroy the other’s Confidential Information as required by these Terms. Sections that by their nature should survive termination will survive, including Sections 10 through 18 and 20 through 23.</p>
+</section>
+
+<section id="governing-law" aria-labelledby="gov-h">
+<h2 id="gov-h"><span class="n">20.</span> Governing law</h2>
+<p>These Terms and any dispute arising out of or relating to them or the Service are governed by the laws of the State of <mark class="ph">[Governing law state]</mark>, without regard to its conflict-of-laws rules, except that the Federal Arbitration Act governs the interpretation and enforcement of <a href="#disputes">Section 21</a>. The United Nations Convention on Contracts for the International Sale of Goods does not apply. Subject to Section 21, any dispute that is not subject to arbitration will be brought exclusively in the state or federal courts located in <mark class="ph">[Governing law state]</mark>, and each party consents to the personal jurisdiction of those courts.</p>
+</section>
+
+<section id="disputes" aria-labelledby="disp-h">
+<h2 id="disp-h"><span class="n">21.</span> Dispute resolution: binding arbitration and class-action waiver</h2>
+<p class="caps">PLEASE READ THIS SECTION CAREFULLY. IT REQUIRES YOU AND US TO RESOLVE DISPUTES THROUGH BINDING INDIVIDUAL ARBITRATION RATHER THAN IN COURT, AND IT LIMITS HOW CLAIMS MAY BE BROUGHT.</p>
+<h3>21.1 Informal resolution</h3>
+<p>Before starting arbitration or a court proceeding, the party raising a dispute must send the other a written notice describing the dispute, the relief sought, and contact information. Notices to us must be sent to <mark class="ph">[Legal contact email]</mark> and <mark class="ph">[Mailing address]</mark>. The parties will try in good faith to resolve the dispute informally for at least 60 days after the notice is received. Statutes of limitations are tolled during this period.</p>
+<h3>21.2 Agreement to arbitrate</h3>
+<p>If the dispute is not resolved informally, you and we agree that any dispute, claim, or controversy arising out of or relating to these Terms, the Service, or the relationship between you and us, including questions of arbitrability, will be resolved by final and binding arbitration administered by <mark class="ph">[Arbitration provider]</mark> under its rules then in effect for commercial disputes, except as provided below. The arbitration will be conducted by a single arbitrator, in English, in <mark class="ph">[Arbitration venue]</mark> or by video conference if the parties agree. The arbitrator may award any individual relief that a court could award, and judgment on the award may be entered in any court of competent jurisdiction. Each party will bear its own attorneys’ fees and costs except as the arbitrator awards under applicable law or the applicable rules.</p>
+<h3>21.3 Class-action and jury-trial waiver</h3>
+<p class="caps">YOU AND WE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, COLLECTIVE, CONSOLIDATED, OR REPRESENTATIVE PROCEEDING. THE ARBITRATOR MAY NOT CONSOLIDATE MORE THAN ONE PARTY’S CLAIMS OR PRESIDE OVER ANY FORM OF CLASS OR REPRESENTATIVE PROCEEDING. YOU AND WE EACH WAIVE THE RIGHT TO A JURY TRIAL.</p>
+<p>If this class-action waiver is found unenforceable as to a particular claim or request for relief, that claim or request will be severed and decided by a court under <a href="#governing-law">Section 20</a> after the arbitration of all other claims is complete, and the remainder of this Section 21 will remain in effect.</p>
+<h3>21.4 Exceptions</h3>
+<p>Either party may (a) bring an individual claim in small-claims court if it qualifies and remains there, and (b) seek temporary, preliminary, or permanent injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation, or violation of its intellectual property rights, confidentiality obligations, or the security of the Service.</p>
+<h3>21.5 30-day right to opt out</h3>
+<p>You may opt out of this agreement to arbitrate by sending written notice to <mark class="ph">[Legal contact email]</mark> or <mark class="ph">[Mailing address]</mark> within 30 days after you first accept these Terms. Your notice must include your name, your business name, the email address associated with your account or inquiry, and a clear statement that you are opting out of arbitration. If you opt out, the remainder of these Terms will still apply, and neither party will be bound by this Section 21.</p>
+<h3>21.6 Severability</h3>
+<p>Except as provided in Section 21.3, if any part of this Section 21 is found unenforceable, that part will be severed and the rest of this Section 21 will remain in effect.</p>
+</section>
+
+<section id="general" aria-labelledby="gen-h">
+<h2 id="gen-h"><span class="n">22.</span> General provisions</h2>
+<ul>
+<li><strong>Entire agreement.</strong> These Terms, together with any Order and the documents referenced in them, are the entire agreement between you and us about the Service and supersede all prior or contemporaneous agreements and understandings on that subject.</li>
+<li><strong>Assignment.</strong> You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without consent in connection with a merger, acquisition, reorganization, or sale of all or substantially all of the assets of the business to which these Terms relate. Any prohibited assignment is void.</li>
+<li><strong>Force majeure.</strong> Neither party is liable for any delay or failure to perform (other than payment obligations) caused by events beyond its reasonable control, including natural disasters, acts of government, labor disputes, internet, carrier, or utility failures, outages or actions of Third-Party Services, cyberattacks, or pandemics.</li>
+<li><strong>Independent contractors.</strong> The parties are independent contractors. Nothing in these Terms creates a partnership, joint venture, agency, fiduciary, or employment relationship.</li>
+<li><strong>Notices.</strong> We may give notices to you by email to the address associated with your account or inquiry, through the Service, or by posting on the Site. You must give notices to us in writing at the contact details in <a href="#contact">Section 23</a>. Notices are effective when received.</li>
+<li><strong>Waiver and severability.</strong> Our failure to enforce any provision is not a waiver. If any provision is held unenforceable, it will be enforced to the maximum extent permissible and the remaining provisions will remain in full effect.</li>
+<li><strong>Export and sanctions.</strong> You will comply with all applicable export control and economic sanctions laws and will not use the Service in or for the benefit of any embargoed country or restricted party.</li>
+<li><strong>Publicity.</strong> Neither party will use the other’s name or logo in publicity or marketing without prior written consent.</li>
+<li><strong>No third-party beneficiaries.</strong> These Terms do not create any third-party beneficiary rights, except for the persons indemnified under <a href="#indemnification">Section 18</a>.</li>
+<li><strong>Interpretation.</strong> Headings are for convenience only. “Including” means “including without limitation.” If these Terms are translated, the English version controls.</li>
+</ul>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+<h2 id="contact-h"><span class="n">23.</span> Contact us</h2>
+<p>Questions about these Terms can be sent to:</p>
+<address class="contact-card">
+<strong>RemoGroup.ai (operator of RemoBlue)</strong><br>
+Attn: Legal<br>
+Email: <mark class="ph">[Legal contact email]</mark><br>
+Mail: <mark class="ph">[Mailing address]</mark>
+</address>
+</section>
+
+<p class="back-top"><a class="btn btn-ghost btn-sm" href="#top">Back to top</a></p>
+    </article>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+        <p>A custom AI executive assistant being developed for business owners—designed to handle calls, messages, email, appointments, research, marketing, and follow-up, with the work kept in one place.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#handles">What it handles</a></li>
+          <li><a href="/#setup">Your setup</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/book.html">Book an intro call</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms" aria-current="page">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-base"><span>© <span data-year>2026</span> RemoBlue</span><span>Your business. Your assistant. Work followed through.</span></div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(!b)return;
+b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);m.dataset.open=o;});
+m.addEventListener('click',e=>{if(e.target.closest('a')){b.setAttribute('aria-expanded','false');m.dataset.open='false';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){b.setAttribute('aria-expanded','false');m.dataset.open='false';b.focus();}});})();
+(function(){const links=[...document.querySelectorAll('.toc a')];if(!links.length||!('IntersectionObserver' in window))return;
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=map.get(e.target.id);if(a)a.setAttribute('aria-current','true');}});},{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('.prose section[id]').forEach(s=>io.observe(s));})();
+</script>
+</body>
+</html>
