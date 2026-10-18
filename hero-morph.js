@@ -1,5 +1,6 @@
 'use strict';
-// A conceptual seven-second story. No live tasks, video, or network requests.
+// A conceptual twenty-second loop, with ten seconds resting on the humanoid.
+// No live tasks, video, or network requests.
 (async function () {
   const figure = document.querySelector('.morph-hero');
   if (!figure) return;
@@ -15,7 +16,8 @@
   const replay = document.querySelector('#morph-replay');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const still = new URLSearchParams(window.location.search).get('motion') === 'off';
-  const duration = 7000;
+  const duration = 20000;
+  const at = milliseconds => milliseconds / duration;
   let animations = [], main, frame = 0, inView = false, userPaused = false;
   let started = false, ready = false, size = '';
 
@@ -32,24 +34,17 @@
     status.textContent = 'Today on your phone · Future humanoid vision';
   }
   function updateStatus() {
-    const time = Number(main?.currentTime || 0);
-    const text = time < 2600 ? 'Today · Your general manager starts here.'
-      : time < 5300 ? 'Your business knowledge goes with you.'
-      : 'The vision · Your future physical teammate.';
+    const time = Number(main?.currentTime || 0) % duration;
+    const text = time < 3000 || time >= 18000 ? 'Today · Your general manager starts here.'
+      : time < 5500 ? 'Your business knowledge goes with you.'
+      : time < 15500 ? 'The vision · Your future physical teammate.'
+      : 'The same Remo. Back in your hands.';
     if (status.textContent !== text) status.textContent = text;
     if (main?.playState === 'running') frame = requestAnimationFrame(updateStatus);
   }
   function syncPlayback() {
     if (!main) return;
     cancelAnimationFrame(frame);
-    if (Number(main.currentTime) >= duration) {
-      figure.dataset.playback = 'complete';
-      pause.disabled = true;
-      pause.textContent = 'Complete';
-      pause.setAttribute('aria-label', 'Animation complete');
-      updateStatus();
-      return;
-    }
     pause.disabled = false;
     pause.textContent = userPaused ? 'Resume' : 'Pause';
     pause.setAttribute('aria-label', userPaused ? 'Resume animation' : 'Pause animation');
@@ -77,36 +72,39 @@
     const initial = `translate(${(width - 260 * initialScale) / 2}px, ${(height - 420 * initialScale) / 2}px) scale(${initialScale})`;
     const target = `translate(${imageX + 552 * scale}px, ${imageY + 543 * scale}px) scale(${419 * scale / 260}, ${459 * scale / 420})`;
     function animate(element, keyframes) {
-      const animation = element.animate(keyframes, { duration, fill: 'both', easing: 'linear' });
+      const animation = element.animate(keyframes, { duration, iterations: Infinity, fill: 'both', easing: 'linear' });
       animation.pause(); animation.currentTime = time;
       animations.push(animation);
       return animation;
     }
     main = animate(phone, [
-      { offset: 0, transform: initial, opacity: 1, borderRadius: '34px' },
-      { offset: .37, transform: initial, opacity: 1, borderRadius: '34px', easing: 'cubic-bezier(.4,0,.2,1)' },
-      { offset: .69, transform: target, opacity: 1, borderRadius: '23px' },
-      { offset: .83, transform: target, opacity: 0, borderRadius: '23px' },
-      { offset: 1, transform: target, opacity: 0, borderRadius: '23px' }
+      { offset: at(0), transform: initial, opacity: 1, borderRadius: '34px' },
+      { offset: at(3000), transform: initial, opacity: 1, borderRadius: '34px', easing: 'cubic-bezier(.4,0,.2,1)' },
+      { offset: at(5000), transform: target, opacity: 1, borderRadius: '23px' },
+      { offset: at(5500), transform: target, opacity: 0, borderRadius: '23px' },
+      { offset: at(15500), transform: target, opacity: 0, borderRadius: '23px' },
+      { offset: at(16000), transform: target, opacity: 1, borderRadius: '23px', easing: 'cubic-bezier(.4,0,.2,1)' },
+      { offset: at(18000), transform: initial, opacity: 1, borderRadius: '34px' },
+      { offset: at(20000), transform: initial, opacity: 1, borderRadius: '34px' }
     ]);
     animate(robot, [
-      { offset: 0, opacity: 0 }, { offset: .37, opacity: 0 },
-      { offset: .54, opacity: .3 }, { offset: .79, opacity: .94 },
-      { offset: 1, opacity: .94 }
+      { offset: at(0), opacity: 0 }, { offset: at(3000), opacity: 0 },
+      { offset: at(4500), opacity: .35 }, { offset: at(5500), opacity: .94 },
+      { offset: at(15500), opacity: .94 }, { offset: at(17000), opacity: .35 },
+      { offset: at(18000), opacity: 0 }, { offset: at(20000), opacity: 0 }
     ]);
-    animate(conversation, [
-      { offset: 0, opacity: 1 }, { offset: .38, opacity: 1 },
-      { offset: .52, opacity: 0 }, { offset: 1, opacity: 0 }
-    ]);
+    const conversationFrames = [
+      { offset: at(0), opacity: 1 }, { offset: at(3000), opacity: 1 },
+      { offset: at(4200), opacity: 0 }, { offset: at(16600), opacity: 0 },
+      { offset: at(18000), opacity: 1 }, { offset: at(20000), opacity: 1 }
+    ];
+    animate(conversation, conversationFrames);
     animate(dashboard, [
-      { offset: 0, opacity: 0 }, { offset: .43, opacity: 0 },
-      { offset: .57, opacity: 1 }, { offset: 1, opacity: 1 }
+      { offset: at(0), opacity: 0 }, { offset: at(3300), opacity: 0 },
+      { offset: at(4500), opacity: 1 }, { offset: at(16200), opacity: 1 },
+      { offset: at(17700), opacity: 0 }, { offset: at(20000), opacity: 0 }
     ]);
-    animate(notch, [
-      { offset: 0, opacity: 1 }, { offset: .38, opacity: 1 },
-      { offset: .52, opacity: 0 }, { offset: 1, opacity: 0 }
-    ]);
-    main.onfinish = syncPlayback;
+    animate(notch, conversationFrames);
     controls.hidden = false;
     syncPlayback();
   }
