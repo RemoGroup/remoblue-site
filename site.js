@@ -48,7 +48,7 @@ if (requestForm) {
     const focus = String(data.get('focus')).trim();
     const industry = selection.options[selection.selectedIndex].text;
     const subject = `RemoGM demo request — ${industry}`;
-    const body = `Hello RemoBlue,\n\nI'd like to discuss RemoGM for my business.\n\nName: ${name}\nBusiness: ${business}\nIndustry: ${industry}\nWork I'd like help with: ${focus || 'I would like to discuss this during the demo.'}\n\nPlease reply with next steps and possible demo times.\n\nThank you,\n${name}`;
+    const body = `Hello RemoGM team,\n\nI'd like to discuss RemoGM for my business.\n\nName: ${name}\nBusiness: ${business}\nIndustry: ${industry}\nWork I'd like help with: ${focus || 'I would like to discuss this during the demo.'}\n\nPlease reply with next steps and possible demo times.\n\nThank you,\n${name}`;
     document.querySelector('#request-draft').value = body;
     document.querySelector('#open-email').href = `mailto:remo@remogroup.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     document.querySelector('#draft-result').hidden = false;
