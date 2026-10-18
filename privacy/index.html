@@ -1,0 +1,509 @@
+<!doctype html>
+<!--
+  PLACEHOLDERS TO COMPLETE BEFORE RELYING ON THIS PAGE (shown highlighted on the page):
+  - [State of organization]
+  - [Privacy contact email]
+  - [Toll-free number for privacy requests, if required]
+  - [Mailing address]
+  Have this document reviewed by qualified counsel before treating it as final.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#07111F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07111F; --ink2:#0D1D32; --ink3:#12263F; --line:rgba(168,183,203,.18); --line2:rgba(168,183,203,.30);
+  --blue:#3478FF; --blue-hi:#6EA2FF; --paper:#F5F7FB; --silver:#A8B7CB; --teal:#3FD1B8; --teal-ink:#0E7C6B;
+  --text:#EAF0F8; --muted:#A8B7CB; --ptext:#0B1A2E; --pmuted:#46566C;
+  --display:"Inter Tight","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --r:14px; --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--ink);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.04;font-weight:600;text-wrap:balance}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--paper);color:var(--ptext);padding:12px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--blue-hi);outline-offset:3px;border-radius:6px}
+.light :focus-visible{outline-color:#1D5BDB}
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(7,17,31,.86);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 21px/1 var(--display);letter-spacing:-.03em;min-height:44px}
+.logo svg{width:30px;height:30px}
+.logo .remo{color:var(--text)} .logo .blue{color:#4C8DFF}
+.light .logo .remo{color:#0B1A3A} .light .logo .blue{color:var(--blue)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--silver);text-decoration:none;font-size:15px;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:10px}
+.nav a:hover{color:var(--text);background:rgba(168,183,203,.08)}
+.header-cta{margin-left:8px}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border-radius:10px;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.mobile-menu{display:none}
+@media (max-width:920px){
+  .nav,.header-cta.desk{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-menu{border-top:1px solid var(--line);padding:8px 20px 20px}
+  .mobile-menu[data-open=true]{display:block}
+  .mobile-menu a:not(.btn){display:flex;align-items:center;min-height:48px;color:var(--text);text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:16px;width:100%}
+}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px -10px rgba(52,120,255,.7)}
+.btn-primary:hover{background:#2766E6}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--silver)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.light .btn-ghost{color:var(--ptext);border-color:rgba(11,26,46,.25)}
+/* labels */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-hi)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+.light .eyebrow{color:#1D5BDB}
+.tag-illus{display:inline-flex;align-items:center;gap:7px;font:600 11.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#FFD58A;background:rgba(242,181,68,.10);border:1px solid rgba(242,181,68,.35);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.tag-illus::before{content:"";width:6px;height:6px;border-radius:50%;background:#F2B544}
+.light .tag-illus{color:#7A4A00;background:#FFF3DC;border-color:#E9C27A}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--silver);white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+.chip[data-status=pilot]{color:var(--teal);border-color:rgba(63,209,184,.45);background:rgba(63,209,184,.07)}
+.chip[data-status=planned]{color:var(--silver)}
+.light .chip[data-status=planned]{color:#4A5A70;border-color:rgba(11,26,46,.22)}
+.light .chip[data-status=pilot]{color:var(--teal-ink);border-color:rgba(14,124,107,.4);background:rgba(14,124,107,.06)}
+/* footer */
+.site-footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--ink)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.site-footer p{color:var(--muted);font-size:15px;max-width:40ch;margin-top:16px}
+.site-footer h2{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:12px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:var(--text);text-decoration:none;font-size:15px}
+.site-footer li a:hover{text-decoration:underline}
+.foot-base{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>:first-child{grid-column:1/-1}}
+[hidden]{display:none!important}
+
+
+/* legal pages */
+.legal-hero{padding:clamp(56px,8vw,104px) 0 clamp(32px,4vw,48px);border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 15% 0%,rgba(52,120,255,.14),transparent 70%),var(--ink)}
+.legal-hero h1{font-size:clamp(2.4rem,6vw,4.4rem);margin:18px 0 18px}
+.legal-hero .lede{color:var(--muted);font-size:clamp(17px,1.6vw,19px);max-width:62ch;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:24px;color:var(--silver);font-size:14.5px}
+.meta-row .dot{width:4px;height:4px;border-radius:50%;background:var(--line2)}
+@media (max-width:640px){.meta-row .dot{display:none}}
+.legal-body{padding:clamp(40px,6vw,72px) 0 clamp(64px,9vw,120px)}
+.legal-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1080px){.legal-grid{grid-template-columns:260px minmax(0,72ch);gap:72px;justify-content:start}}
+.toc{border:1px solid var(--line);border-radius:var(--r);background:var(--ink2);padding:20px 20px 14px}
+@media (min-width:1080px){.toc{position:sticky;top:92px;max-height:calc(100vh - 116px);overflow:auto}}
+.toc h2{font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-hi);margin:0 0 12px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li a{display:flex;gap:10px;padding:7px 0;color:var(--silver);text-decoration:none;font-size:14.5px;line-height:1.35;border-radius:6px}
+.toc li a span{color:var(--muted);opacity:.7;min-width:1.6em;font-variant-numeric:tabular-nums}
+.toc li a:hover{color:var(--text)}
+.toc li a[aria-current=true]{color:var(--text)}
+@media (max-width:1079px){.toc ol{columns:2;column-gap:32px}.toc li{break-inside:avoid}}
+@media (max-width:640px){.toc ol{columns:1}}
+.prose{max-width:72ch;min-width:0;overflow-wrap:break-word}
+.prose section{scroll-margin-top:92px}
+.prose h2{font-size:clamp(1.45rem,2.4vw,1.85rem);line-height:1.15;margin:56px 0 16px;padding-top:32px;border-top:1px solid var(--line)}
+.prose section:first-of-type h2{margin-top:0;padding-top:0;border-top:0}
+.prose .callout + section h2{margin-top:40px}
+.prose h2 .n{color:var(--blue-hi);margin-right:.35em;font-variant-numeric:tabular-nums}
+.prose h3{font-size:1.12rem;line-height:1.3;letter-spacing:-.01em;margin:30px 0 10px;color:var(--text)}
+.prose p,.prose li{color:#C4D0DF;font-size:16.5px;line-height:1.72}
+.prose strong{color:var(--text);font-weight:600}
+.prose ul{margin:0 0 1.2em;padding-left:1.25em}
+.prose li{margin:0 0 .6em;padding-left:.2em}
+.prose li::marker{color:var(--blue-hi)}
+.prose a{color:var(--blue-hi);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.prose a:hover{color:#9CC0FF}
+.prose .caps{font-size:14.5px;line-height:1.7;letter-spacing:.01em;color:#C4D0DF}
+.callout{border:1px solid rgba(110,162,255,.35);background:rgba(52,120,255,.08);border-radius:12px;padding:16px 18px;margin:0 0 1.4em}
+.callout p{margin:0}
+.contact-card{font-style:normal;border:1px solid var(--line);background:var(--ink2);border-radius:var(--r);padding:20px 22px;color:#C4D0DF;line-height:1.8}
+mark.ph{background:rgba(242,181,68,.14);color:#FFD58A;border:1px dashed rgba(242,181,68,.7);border-radius:5px;padding:0 .3em;font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.table-wrap{margin:8px 0 1.4em;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.prose table{width:100%;border-collapse:collapse;font-size:15px}
+.prose th,.prose td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line);color:#C4D0DF;line-height:1.5}
+.prose th{background:var(--ink2);color:var(--silver);font:600 12.5px/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase}
+.prose td:first-child{color:var(--text);font-weight:600}
+.prose tr:last-child td{border-bottom:0}
+@media (max-width:640px){
+  .prose thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .prose table,.prose tbody,.prose tr,.prose td{display:block;width:100%}
+  .prose tr{border-bottom:1px solid var(--line);padding:6px 0}
+  .prose tr:last-child{border-bottom:0}
+  .prose td{border:0;padding:6px 16px}
+  .prose td::before{content:attr(data-label);display:block;font:600 11.5px/1.4 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:2px}
+}
+.back-top{margin-top:48px}
+</style>
+<title>Privacy Policy | RemoBlue</title>
+<meta name="description" content="How RemoBlue, operated by RemoGroup.ai, collects, uses, shares, and protects personal information, and the privacy rights and choices available to you.">
+<link rel="canonical" href="https://remoblue.com/privacy">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RemoBlue">
+<meta property="og:url" content="https://remoblue.com/privacy">
+<meta property="og:title" content="Privacy Policy | RemoBlue">
+<meta property="og:description" content="How RemoBlue, operated by RemoGroup.ai, collects, uses, shares, and protects personal information, and the privacy rights and choices available to you.">
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rbLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E40AF"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+    <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#06B6D4"/></linearGradient>
+  </defs>
+  <symbol id="rb-mark" viewBox="0 0 64 64">
+    <path d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#1E3A8A"/>
+    <path d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#1D4ED8"/>
+    <path d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#2563EB"/>
+    <path d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#3B82F6"/>
+    <path d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#06B6D4"/>
+    <path d="M7.75 46 7.75 18 20.74 25.5 20.74 38.5Z" fill="url(#rbLeft)"/>
+    <path d="M7.75 18 32 4 32 19Z" fill="#0B1530" opacity=".35"/>
+    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#93C5FD" opacity=".45"/>
+    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#38BDF8" opacity=".45"/>
+    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#1E3A8A" opacity=".25"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#how">How it works</a>
+      <a href="/#handles">What it handles</a>
+      <a href="/#setup">Your setup</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta desk" href="/book.html">Book an intro call</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" data-open="false" aria-label="Mobile">
+    <a href="/#how">How it works</a>
+    <a href="/#handles">What it handles</a>
+    <a href="/#setup">Your setup</a>
+    <a href="/#faq">FAQ</a>
+    <a class="btn btn-primary" href="/book.html">Book an intro call</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="legal-hero" aria-labelledby="page-h">
+  <div class="wrap">
+    <span class="eyebrow">Legal</span>
+    <h1 id="page-h">Privacy Policy</h1>
+    <p class="lede">This policy explains what personal information we collect through the RemoBlue website and service, how we use and share it, and the choices and rights you have.</p>
+    <p class="meta-row"><span>Last updated: <time datetime="2026-10-17">October 17, 2026</time></span><span class="dot" aria-hidden="true"></span><span>RemoBlue is owned and operated by RemoGroup.ai, a limited liability company.</span></p>
+  </div>
+</section>
+<div class="legal-body">
+  <div class="wrap legal-grid">
+    <nav class="toc" aria-labelledby="toc-h">
+      <h2 id="toc-h">On this page</h2>
+      <ol>
+      <li><a href="#scope"><span>1.</span>Who we are and scope of this policy</a></li>
+      <li><a href="#information-we-collect"><span>2.</span>Information we collect</a></li>
+      <li><a href="#how-we-use"><span>3.</span>How we use information</a></li>
+      <li><a href="#legal-bases"><span>4.</span>Legal bases for processing (EEA, UK, and Switzerland)</a></li>
+      <li><a href="#sharing"><span>5.</span>How we share information</a></li>
+      <li><a href="#cookies"><span>6.</span>Cookies and similar technologies</a></li>
+      <li><a href="#third-party"><span>7.</span>Third-party services and links</a></li>
+      <li><a href="#service-data"><span>8.</span>Information processed in the Service on behalf of business customers</a></li>
+      <li><a href="#retention"><span>9.</span>Data retention</a></li>
+      <li><a href="#security"><span>10.</span>Security</a></li>
+      <li><a href="#your-rights"><span>11.</span>Your privacy rights and choices</a></li>
+      <li><a href="#us-state-rights"><span>12.</span>California and other U.S. state privacy disclosures</a></li>
+      <li><a href="#eea-uk"><span>13.</span>Additional information for the EEA, UK, and Switzerland</a></li>
+      <li><a href="#exercising-rights"><span>14.</span>How to exercise your rights</a></li>
+      <li><a href="#children"><span>15.</span>Children’s privacy</a></li>
+      <li><a href="#international-transfers"><span>16.</span>International data transfers</a></li>
+      <li><a href="#dnt-gpc"><span>17.</span>Do Not Track and Global Privacy Control</a></li>
+      <li><a href="#changes"><span>18.</span>Changes to this policy</a></li>
+      <li><a href="#contact"><span>19.</span>Contact us</a></li>
+      </ol>
+    </nav>
+    <article class="prose" aria-labelledby="page-h">
+<section id="scope" aria-labelledby="scope-h">
+<h2 id="scope-h"><span class="n">1.</span> Who we are and scope of this policy</h2>
+<p>RemoBlue is owned and operated by RemoGroup.ai, a limited liability company organized under the laws of <mark class="ph">[State of organization]</mark> (“<strong>RemoGroup.ai</strong>,” “<strong>we</strong>,” “<strong>us</strong>,” or “<strong>our</strong>”). This Privacy Policy explains how we collect, use, disclose, retain, and protect personal information, and the choices and rights available to you.</p>
+<p>This policy applies to personal information we process:</p>
+<ul>
+<li>when you visit or interact with our website at remoblue.com and any related pages that link to this policy (the “<strong>Site</strong>”);</li>
+<li>when you request an intro call, contact us, or otherwise communicate with us;</li>
+<li>when you participate in a pilot, evaluation, or other relationship with us as a prospective or current business customer, or as a representative of one; and</li>
+<li>when we market our products and services to businesses.</li>
+</ul>
+<p>RemoBlue is a managed AI executive assistant designed for businesses (the “<strong>Service</strong>”). When we process information <em>within</em> the Service on behalf of a business customer, such as the customer’s own contacts, call and message content, email, calendar entries, and records, we generally act as a service provider or processor to that business. <a href="#service-data">Section 8</a> explains how that works and how it differs from the rest of this policy.</p>
+<p>This policy does not apply to the practices of third parties that we do not own or control, including third-party websites, apps, or services you access through links on the Site or connect to the Service. Use of the Site and the Service is also governed by our <a href="/terms">Terms of Service</a>.</p>
+</section>
+
+<section id="information-we-collect" aria-labelledby="collect-h">
+<h2 id="collect-h"><span class="n">2.</span> Information we collect</h2>
+<p>The information we collect depends on how you interact with us. We aim to collect only what is reasonably necessary for the purposes described in this policy.</p>
+<h3>2.1 Information you provide to us</h3>
+<ul>
+<li><strong>Intro-call and contact requests.</strong> When you request an intro call or contact us, we may collect your name, business name, role or title, business email address, phone number, website, industry, the workflows and tools you describe, your preferred times, and any other details you choose to share.</li>
+<li><strong>Scheduling and meetings.</strong> If you book or attend a call, we may collect scheduling details, meeting attendance, and notes we take about your needs. We will tell you in advance if a meeting will be recorded or transcribed, and we will do so only where permitted by law.</li>
+<li><strong>Customer account and onboarding information.</strong> If your business becomes a pilot participant or customer, we may collect account administrator details, authorized user information, business configuration preferences, approval rules, brand-voice guidance, escalation contacts, and information needed to set up phone numbers, messaging registrations, and connected accounts.</li>
+<li><strong>Billing and transaction information.</strong> If you purchase services from us, we may collect billing contact details, invoicing records, and payment-related information. Where payments are handled by a payment processor, full payment card details are collected and stored by that processor rather than by us.</li>
+<li><strong>Communications and feedback.</strong> We collect the content of emails, messages, calls, survey responses, support requests, and feedback you send to us, along with related metadata.</li>
+</ul>
+<h3>2.2 Information collected automatically</h3>
+<p>When you visit the Site, certain information is collected automatically by us or by the providers that host and deliver it, including:</p>
+<ul>
+<li><strong>Device and connection data</strong>, such as IP address, browser type and version, operating system, device type, language preference, and referring URL.</li>
+<li><strong>Log and usage data</strong>, such as the pages you request, the date and time of each request, response codes, and the approximate location that can be inferred from an IP address (for example, city or region, but not precise geolocation).</li>
+<li><strong>Service usage data.</strong> When authorized users access the Service, we collect information about how the Service is used, such as feature interactions, configuration changes, timestamps, error reports, and performance diagnostics, which we use to operate, secure, and improve the Service.</li>
+</ul>
+<p>See <a href="#cookies">Section 6</a> for information about cookies and similar technologies.</p>
+<h3>2.3 Information from third parties</h3>
+<ul>
+<li><strong>Your business or colleagues</strong>, for example when an administrator adds you as an authorized user or names you as an escalation contact.</li>
+<li><strong>Service providers and integrations</strong>, such as scheduling tools, communications providers, and accounts you or your business choose to connect to the Service, consistent with the permissions granted.</li>
+<li><strong>Publicly available sources</strong>, such as business websites, professional directories, and public business profiles, which we may use to understand a prospective customer’s business.</li>
+<li><strong>Referral partners and contacts</strong> who introduce you to us, where they are permitted to share your information.</li>
+</ul>
+<p>We do not ask for, and you should not provide, passwords, payment card numbers, government identification numbers, health information, or your customers’ personal information when requesting an intro call.</p>
+</section>
+
+<section id="how-we-use" aria-labelledby="use-h">
+<h2 id="use-h"><span class="n">3.</span> How we use information</h2>
+<p>We use personal information for the following purposes:</p>
+<ul>
+<li><strong>Responding to requests</strong>: to evaluate and respond to intro-call requests and inquiries, schedule and conduct meetings, and prepare proposals.</li>
+<li><strong>Providing the Service</strong>: to set up, configure, operate, maintain, and support the Service and pilot programs, including onboarding, account administration, phone number and messaging registration, and connected-account integrations.</li>
+<li><strong>Communicating with you</strong>: to send administrative and transactional messages, such as confirmations, service notices, security alerts, and changes to our terms or policies.</li>
+<li><strong>Improving our offerings</strong>: to understand how the Site and the Service are used, diagnose problems, measure performance, and develop new features. Where practical, we use aggregated or de-identified information for this purpose.</li>
+<li><strong>Marketing</strong>: to send business-relevant updates about RemoBlue where permitted by law. You can opt out at any time (see <a href="#your-rights">Section 11</a>).</li>
+<li><strong>Safety, security, and integrity</strong>: to detect, investigate, and prevent fraud, abuse, spam, security incidents, and violations of our Terms of Service.</li>
+<li><strong>Legal and compliance</strong>: to comply with applicable laws, regulations, legal process, and carrier or platform requirements; to enforce our agreements; and to establish, exercise, or defend legal claims.</li>
+<li><strong>Business operations</strong>: for accounting, auditing, record keeping, and corporate transactions, as described in <a href="#sharing">Section 5</a>.</li>
+<li><strong>With your consent</strong>: for any other purpose disclosed to you at the time we collect the information or with your consent.</li>
+</ul>
+<p>If we maintain de-identified information, we will maintain and use it in de-identified form and will not attempt to re-identify it, except as permitted by law.</p>
+</section>
+
+<section id="legal-bases" aria-labelledby="bases-h">
+<h2 id="bases-h"><span class="n">4.</span> Legal bases for processing (EEA, UK, and Switzerland)</h2>
+<p>If you are located in the European Economic Area, the United Kingdom, or Switzerland, data protection law requires us to have a legal basis for processing your personal information. Depending on the context, we rely on:</p>
+<ul>
+<li><strong>Performance of a contract</strong>, where processing is necessary to enter into or perform a contract with you or the business you represent, such as preparing a proposal or providing the Service.</li>
+<li><strong>Legitimate interests</strong>, where processing is necessary for our legitimate interests or those of a third party and those interests are not overridden by your rights and interests. These include responding to inquiries, operating and securing the Site and the Service, improving our offerings, business-to-business marketing, and preventing fraud and abuse.</li>
+<li><strong>Consent</strong>, where we ask for it, such as for certain marketing communications or optional cookies. You may withdraw consent at any time without affecting the lawfulness of processing before withdrawal.</li>
+<li><strong>Legal obligation</strong>, where processing is necessary to comply with a law to which we are subject.</li>
+</ul>
+<p>Where we act as a processor on behalf of a business customer, that customer is responsible for determining the legal basis for its processing.</p>
+</section>
+
+<section id="sharing" aria-labelledby="share-h">
+<h2 id="share-h"><span class="n">5.</span> How we share information</h2>
+<p class="callout"><strong>We do not sell personal information</strong>, and we do not share personal information for cross-context behavioral advertising, as those terms are defined under applicable U.S. state privacy laws.</p>
+<p>We disclose personal information only as described below:</p>
+<ul>
+<li><strong>Service providers.</strong> We use vendors who process personal information on our behalf and under our instructions, subject to contractual confidentiality and data protection obligations. Depending on the features in use, these may include website and cloud hosting providers; communications providers, such as Twilio for voice and SMS; email and calendar providers; scheduling tools; AI and language-model infrastructure providers used to deliver Service features; customer-support, productivity, and document tools; payment processors; and analytics providers, if analytics are enabled.</li>
+<li><strong>Integrations you direct.</strong> When you or your business connect a third-party account to the Service (for example, an email, calendar, Apple, or social-publishing account such as Blotato), we exchange information with that provider as needed to carry out your instructions.</li>
+<li><strong>Your business.</strong> If you use the Service as an authorized user of a business customer, your business’s administrators may access information about your use of the Service.</li>
+<li><strong>Professional advisers.</strong> We may share information with lawyers, accountants, auditors, insurers, and similar advisers who are bound by confidentiality obligations.</li>
+<li><strong>Legal and safety.</strong> We may disclose information if we believe in good faith that doing so is necessary to comply with applicable law, regulation, legal process, or an enforceable governmental request; to enforce our agreements; to protect the security or integrity of the Site or the Service; or to protect the rights, property, or safety of RemoGroup.ai, our customers, or others.</li>
+<li><strong>Business transfers.</strong> If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, sale of assets, or similar transaction, or in steps taken in anticipation of one, personal information may be disclosed or transferred as part of that transaction, subject to customary confidentiality protections. Any successor will be required to handle personal information consistently with this policy or will provide notice of material changes.</li>
+<li><strong>Affiliates.</strong> We may share information with entities under common ownership or control with RemoGroup.ai, which will handle it consistently with this policy.</li>
+<li><strong>With your consent or at your direction.</strong> We may share information for other purposes with your consent or at your direction.</li>
+</ul>
+<p>We may also share aggregated or de-identified information that cannot reasonably be used to identify you.</p>
+<p><strong>Mobile information.</strong> We do not sell, rent, or share mobile phone numbers or SMS opt-in data and consent with third parties or affiliates for their own marketing or promotional purposes. This does not restrict disclosures to service providers that help us deliver messages, or disclosures required by law.</p>
+</section>
+
+<section id="cookies" aria-labelledby="cookies-h">
+<h2 id="cookies-h"><span class="n">6.</span> Cookies and similar technologies</h2>
+<p>Cookies are small text files stored on your device. Similar technologies include local storage, pixels, and scripts. These can be <em>strictly necessary</em> (to deliver a site securely), <em>functional</em> (to remember preferences), or <em>analytics</em> (to understand how a site is used).</p>
+<p>As of the date of this policy, the Site does not use advertising cookies or third-party advertising trackers. The Site is delivered by a third-party hosting provider, and it loads web fonts from Google Fonts. When your browser requests these resources, the providers receive standard technical information such as your IP address and browser details, which they handle under their own privacy policies.</p>
+<p>If we introduce analytics or other non-essential cookies in the future, we will update this policy and, where required by law, ask for your consent first. You can control cookies through your browser settings, including blocking or deleting them, though some features may not work properly if you do.</p>
+</section>
+
+<section id="third-party" aria-labelledby="third-h">
+<h2 id="third-h"><span class="n">7.</span> Third-party services and links</h2>
+<p>The Site and the Service may link to or integrate with websites, platforms, and services operated by third parties, including communications carriers, Apple, email and calendar providers, and social-publishing tools. Those third parties collect and use information under their own terms and privacy policies, not this one. We are not responsible for their practices, and we encourage you to review their policies before you share information with them or connect their services.</p>
+</section>
+
+<section id="service-data" aria-labelledby="svc-h">
+<h2 id="svc-h"><span class="n">8.</span> Information processed in the Service on behalf of business customers</h2>
+<h3>8.1 Our role</h3>
+<p>The Service helps businesses handle calls, messages, email, appointments, research, marketing, records, and follow-up. To do this, it processes information that the business customer, its users, and the people they communicate with provide or make available, such as contact details, call audio and transcripts, SMS and iMessage content, email content, calendar entries, customer records, and AI-generated drafts and summaries (“<strong>Customer Data</strong>”).</p>
+<p>For Customer Data, the business customer is generally the “controller” or “business,” and we act as its “processor” or “service provider.” We process Customer Data only to provide, secure, support, and improve the Service under our agreement with that customer and its documented instructions, or as required by law. We do not sell Customer Data, and we do not use it to train generalized AI models offered to others unless the business customer agrees.</p>
+<h3>8.2 Business customer responsibilities</h3>
+<p>Each business customer is responsible for the personal information it brings into the Service and for its own privacy practices. This includes providing any required privacy notices to its customers and contacts; obtaining any consents required to call, text, email, or record them; disclosing the use of an AI assistant where required; and honoring opt-outs and do-not-contact requests.</p>
+<h3>8.3 If you communicate with a business that uses RemoBlue</h3>
+<p>If you have called, texted, emailed, or otherwise interacted with a business that uses the Service, that business’s privacy policy governs how your information is handled. Please direct privacy questions and requests to that business. If you contact us directly, we will refer your request to the relevant customer where appropriate and assist it as required by our agreement and applicable law.</p>
+<h3>8.4 Text messages and opt-out</h3>
+<p>Text messages sent through the Service on behalf of a business are sent by that business. You can opt out of further text messages from a business number by replying <strong>STOP</strong>; reply <strong>HELP</strong> for help. You may receive one message confirming your opt-out. Message and data rates may apply. Opting out of messages from one business does not affect messages from other senders.</p>
+<h3>8.5 AI-assisted processing</h3>
+<p>The Service uses automated and AI-assisted tools to transcribe, summarize, classify, draft, and route communications. AI outputs can be inaccurate or incomplete, and business customers configure which actions require human approval. We do not use the Service to make decisions that produce legal or similarly significant effects about individuals based solely on automated processing.</p>
+</section>
+
+<section id="retention" aria-labelledby="ret-h">
+<h2 id="ret-h"><span class="n">9.</span> Data retention</h2>
+<p>We keep personal information for as long as reasonably necessary for the purposes described in this policy, unless a longer period is required or permitted by law. To determine retention periods, we consider the amount, nature, and sensitivity of the information; the potential risk of harm from unauthorized use or disclosure; the purposes for which we process it and whether we can achieve them by other means; and applicable legal, accounting, tax, and reporting requirements.</p>
+<p>For example, we generally retain intro-call information for as long as needed to pursue a potential business relationship, and account and billing records for the duration of the relationship plus any period required for legal, tax, and dispute-resolution purposes. Customer Data is retained in accordance with our agreement with the relevant business customer and its instructions, including deletion or return at the end of the engagement, subject to limited backup and legal-hold exceptions. When information is no longer needed, we delete or de-identify it, or, if that is not possible (for example, because it is stored in backups), we securely store it and isolate it from further processing until deletion is possible.</p>
+</section>
+
+<section id="security" aria-labelledby="sec-h">
+<h2 id="sec-h"><span class="n">10.</span> Security</h2>
+<p>We use reasonable administrative, technical, and physical safeguards designed to protect personal information against loss, theft, and unauthorized access, use, disclosure, alteration, and destruction. These safeguards are appropriate to the nature of the information and the risks involved, and may include access controls based on least privilege, encryption of data in transit where supported, authentication controls, and vendor review.</p>
+<p>No method of transmission over the internet or of electronic storage is completely secure, and we cannot guarantee absolute security. You are responsible for keeping your account credentials confidential and for notifying us promptly if you believe your account or information has been compromised. If we become aware of a security incident affecting your personal information, we will notify you and the relevant authorities as required by applicable law.</p>
+</section>
+
+<section id="your-rights" aria-labelledby="rights-h">
+<h2 id="rights-h"><span class="n">11.</span> Your privacy rights and choices</h2>
+<p>Depending on where you live, and subject to certain exceptions, you may have some or all of the following rights:</p>
+<ul>
+<li><strong>Access and know</strong>: to confirm whether we process your personal information and to obtain a copy of it, along with information about how it is processed.</li>
+<li><strong>Correction</strong>: to correct inaccurate personal information.</li>
+<li><strong>Deletion</strong>: to request deletion of your personal information.</li>
+<li><strong>Portability</strong>: to receive personal information you provided in a structured, commonly used, machine-readable format and to have it transmitted to another organization where technically feasible.</li>
+<li><strong>Objection and restriction</strong>: to object to, or ask us to restrict, certain processing, including processing based on legitimate interests.</li>
+<li><strong>Withdraw consent</strong>: where we rely on consent, to withdraw it at any time.</li>
+<li><strong>Opt out of marketing</strong>: to stop receiving marketing emails by using the unsubscribe link in any marketing email or by contacting us. We may still send you non-marketing messages about your account or our relationship.</li>
+<li><strong>Opt out of sale, sharing, targeted advertising, and profiling</strong>: we do not sell personal information, share it for cross-context behavioral advertising, use it for targeted advertising, or use it for profiling that produces legal or similarly significant effects.</li>
+<li><strong>Non-discrimination</strong>: we will not discriminate or retaliate against you for exercising your privacy rights, including by denying services or charging different prices.</li>
+</ul>
+<p>To exercise these rights, see <a href="#exercising-rights">Section 14</a>. If your request concerns Customer Data that we process for a business customer, please contact that business directly.</p>
+</section>
+
+<section id="us-state-rights" aria-labelledby="us-h">
+<h2 id="us-h"><span class="n">12.</span> California and other U.S. state privacy disclosures</h2>
+<p>This section supplements this policy for residents of California and other U.S. states with comprehensive consumer privacy laws, such as Colorado, Connecticut, Virginia, Utah, Texas, Oregon, and others, to the extent those laws apply to us. It also serves as our California notice at collection.</p>
+<h3>12.1 Categories of personal information</h3>
+<p>In the preceding 12 months, we may have collected the following categories of personal information for the business and commercial purposes described in <a href="#how-we-use">Section 3</a>, from the sources described in <a href="#information-we-collect">Section 2</a>. We disclose each category for business purposes only to the categories of recipients described in <a href="#sharing">Section 5</a>.</p>
+<div class="table-wrap">
+<table>
+<caption class="sr-only">Categories of personal information we collect and disclose</caption>
+<thead><tr><th scope="col">Category</th><th scope="col">Examples</th><th scope="col">Disclosed for a business purpose to</th></tr></thead>
+<tbody>
+<tr><td data-label="Category">Identifiers</td><td data-label="Examples">Name, email address, phone number, IP address, account identifiers</td><td data-label="Disclosed to">Service providers, integrations you direct, professional advisers</td></tr>
+<tr><td data-label="Category">Customer records (Cal. Civ. Code § 1798.80(e))</td><td data-label="Examples">Name, phone number, business contact details, billing information</td><td data-label="Disclosed to">Service providers, payment processors, professional advisers</td></tr>
+<tr><td data-label="Category">Commercial information</td><td data-label="Examples">Services requested or purchased, proposals, transaction records</td><td data-label="Disclosed to">Service providers, professional advisers</td></tr>
+<tr><td data-label="Category">Internet or network activity</td><td data-label="Examples">Browser and device data, pages requested, Service usage logs</td><td data-label="Disclosed to">Hosting and infrastructure providers, analytics providers if enabled</td></tr>
+<tr><td data-label="Category">Approximate geolocation</td><td data-label="Examples">City or region inferred from IP address</td><td data-label="Disclosed to">Hosting and infrastructure providers</td></tr>
+<tr><td data-label="Category">Audio, electronic, or similar information</td><td data-label="Examples">Call recordings, voicemails, and message content in communications with us</td><td data-label="Disclosed to">Communications and AI infrastructure providers</td></tr>
+<tr><td data-label="Category">Professional or employment-related information</td><td data-label="Examples">Business name, role, and title</td><td data-label="Disclosed to">Service providers</td></tr>
+<tr><td data-label="Category">Sensitive personal information</td><td data-label="Examples">Account log-in credentials for the Service</td><td data-label="Disclosed to">Hosting and authentication providers</td></tr>
+</tbody>
+</table>
+</div>
+<p>We do not draw inferences from personal information to create consumer profiles. We use and disclose sensitive personal information only for purposes permitted by law without a right to limit, such as providing the Service and maintaining security. We do not sell or share personal information, and we have no actual knowledge of selling or sharing the personal information of consumers under 16. Retention criteria are described in <a href="#retention">Section 9</a>.</p>
+<h3>12.2 Your rights under U.S. state laws</h3>
+<p>Subject to applicable law, you may have the rights described in <a href="#your-rights">Section 11</a>, including the right to know the categories and specific pieces of personal information we have collected, the categories of sources, our purposes, and the categories of third parties to whom we disclose it; and the rights to correct, delete, and obtain a portable copy of your information. Residents of certain states may also have the right to obtain a list of the specific third parties to which we have disclosed personal information, where available, and the right to appeal our decision on a request.</p>
+<h3>12.3 Shine the Light</h3>
+<p>California residents may ask whether we have disclosed personal information to third parties for their direct marketing purposes. We do not disclose personal information to third parties for their own direct marketing purposes.</p>
+</section>
+
+<section id="eea-uk" aria-labelledby="eu-h">
+<h2 id="eu-h"><span class="n">13.</span> Additional information for the EEA, UK, and Switzerland</h2>
+<p>For personal information we process for our own purposes as described in this policy, RemoGroup.ai is the controller. In addition to the rights in <a href="#your-rights">Section 11</a>, you have the right to lodge a complaint with your local data protection supervisory authority, although we encourage you to contact us first so we can try to resolve your concern. You can object at any time to processing for direct marketing purposes.</p>
+</section>
+
+<section id="exercising-rights" aria-labelledby="ex-h">
+<h2 id="ex-h"><span class="n">14.</span> How to exercise your rights</h2>
+<h3>14.1 Submitting a request</h3>
+<p>You may submit a request by emailing us at <mark class="ph">[Privacy contact email]</mark> with the subject line “Privacy Request,” or by writing to us at the address in <a href="#contact">Section 19</a>. Please describe your request and the state or country where you reside. <mark class="ph">[Toll-free number for privacy requests, if required]</mark></p>
+<h3>14.2 Verification</h3>
+<p>To protect your information, we will take reasonable steps to verify your identity before fulfilling a request, for example by matching information you provide with information we already hold, or by asking you to confirm control of the email address or phone number associated with your information. The information we request will depend on the nature of the request and the sensitivity of the information involved. We will use information provided for verification only for that purpose.</p>
+<h3>14.3 Authorized agents</h3>
+<p>Where permitted by law, you may use an authorized agent to submit a request on your behalf. We may require the agent to provide proof of your signed permission, and we may require you to verify your identity directly with us or confirm that you gave the agent permission, unless the agent holds a valid power of attorney under applicable law.</p>
+<h3>14.4 Timing and response</h3>
+<p>We will respond within the time required by applicable law, typically within 30 to 45 days, and will let you know if we need more time where permitted. We may decline a request where permitted by law, for example if we cannot verify your identity or an exception applies, and if we do, we will explain why.</p>
+<h3>14.5 Appeals</h3>
+<p>If we decline to take action on your request, you may appeal by replying to our decision or by emailing <mark class="ph">[Privacy contact email]</mark> with the subject line “Privacy Request Appeal” within a reasonable period after receiving our decision. We will respond to your appeal within the time required by applicable law and explain the reasons for our decision. If you are not satisfied with the outcome, you may contact the attorney general or data protection authority in your state or country.</p>
+</section>
+
+<section id="children" aria-labelledby="kids-h">
+<h2 id="kids-h"><span class="n">15.</span> Children’s privacy</h2>
+<p>The Site and the Service are intended for businesses and adults and are not directed to children. We do not knowingly collect personal information from children under 13, or from minors under 16 where a higher age applies under local law. If you believe a child has provided us with personal information, please contact us and we will take appropriate steps to delete it.</p>
+</section>
+
+<section id="international-transfers" aria-labelledby="intl-h">
+<h2 id="intl-h"><span class="n">16.</span> International data transfers</h2>
+<p>We are based in the United States, and we and our service providers may process personal information in the United States and other countries whose data protection laws may differ from those where you live. When we transfer personal information from the EEA, the UK, or Switzerland to countries that have not been recognized as providing an adequate level of protection, we use appropriate safeguards, such as the European Commission’s Standard Contractual Clauses and the UK International Data Transfer Addendum, or rely on another lawful transfer mechanism. You may contact us for more information about these safeguards.</p>
+</section>
+
+<section id="dnt-gpc" aria-labelledby="dnt-h">
+<h2 id="dnt-h"><span class="n">17.</span> Do Not Track and Global Privacy Control</h2>
+<p>Some browsers offer a “Do Not Track” setting. Because there is no common industry standard for interpreting Do Not Track signals, the Site does not respond to them. However, we honor Global Privacy Control (GPC) signals as a valid request to opt out of the sale or sharing of personal information and of targeted advertising for the browser or device sending the signal, where required by applicable law. Because we do not currently sell or share personal information or engage in targeted advertising, a GPC signal does not change how the Site operates today.</p>
+</section>
+
+<section id="changes" aria-labelledby="chg-h">
+<h2 id="chg-h"><span class="n">18.</span> Changes to this policy</h2>
+<p>We may update this Privacy Policy from time to time to reflect changes in our practices, the Service, or applicable law. When we do, we will revise the “Last updated” date at the top of this page. If we make material changes, we will provide more prominent notice, such as a notice on the Site or by email, and obtain consent where required by law. We encourage you to review this policy periodically.</p>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+<h2 id="contact-h"><span class="n">19.</span> Contact us</h2>
+<p>If you have questions, concerns, or requests about this Privacy Policy or our privacy practices, please contact us:</p>
+<address class="contact-card">
+<strong>RemoGroup.ai (operator of RemoBlue)</strong><br>
+Attn: Privacy<br>
+Email: <mark class="ph">[Privacy contact email]</mark><br>
+Mail: <mark class="ph">[Mailing address]</mark>
+</address>
+</section>
+
+<p class="back-top"><a class="btn btn-ghost btn-sm" href="#top">Back to top</a></p>
+    </article>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/#top" aria-label="RemoBlue home"><svg aria-hidden="true" viewBox="0 0 64 64"><use href="#rb-mark"/></svg><span><span class="remo">Remo</span><span class="blue">Blue</span></span></a>
+        <p>A custom AI executive assistant being developed for business owners—designed to handle calls, messages, email, appointments, research, marketing, and follow-up, with the work kept in one place.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#handles">What it handles</a></li>
+          <li><a href="/#setup">Your setup</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/book.html">Book an intro call</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/privacy" aria-current="page">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-base"><span>© <span data-year>2026</span> RemoBlue</span><span>Your business. Your assistant. Work followed through.</span></div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(!b)return;
+b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);m.dataset.open=o;});
+m.addEventListener('click',e=>{if(e.target.closest('a')){b.setAttribute('aria-expanded','false');m.dataset.open='false';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){b.setAttribute('aria-expanded','false');m.dataset.open='false';b.focus();}});})();
+(function(){const links=[...document.querySelectorAll('.toc a')];if(!links.length||!('IntersectionObserver' in window))return;
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=map.get(e.target.id);if(a)a.setAttribute('aria-current','true');}});},{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('.prose section[id]').forEach(s=>io.observe(s));})();
+</script>
+</body>
+</html>
