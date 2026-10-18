@@ -6,6 +6,12 @@ Static HTML, CSS, and JavaScript published through GitHub Pages at https://remob
 
 The homepage introduces RemoGM, includes the owner-provided general-manager definition with an adapted-from Investopedia link, and presents eight illustrative industry packages. Industry examples are marked as examples; configured pilot availability is explained before commitment. No customer outcomes or testimonials are fabricated.
 
+## Humanoid vision
+
+The hero uses the owner-selected RemoGM humanoid artwork and the live-text tagline “Start training your humanoid today.” The adjacent copy and dedicated vision section distinguish current configured digital responsibilities from future compatible-hardware integrations. Teaching company knowledge is not represented as physical robotics training. The humanoid and its dashboard are conceptual artwork.
+
+`assets/remogm-humanoid-v1.webp` and its mobile companion are optimized encodings of the approved image, with no creative changes. The original image was edited with the built-in image-generation tool: preserve the owner’s robot, replace the chest screen with RemoGM, and show daily priorities plus Products, Customers, Marketing, Team, Operations, and Money.
+
 ## Files
 
 - `index.html`: homepage, industry selector, six responsibilities, setup, pricing explanation, FAQ.
