@@ -19,6 +19,11 @@ if (menuButton && mobileNav) {
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menuButton.focus(); } });
 }
 const industryButtons = document.querySelectorAll('[data-industry]');
+const industryScenes = {
+  contractor: {src:'assets/remogm-contractor-v1.webp', alt:'Illustrative contractor reviewing a tablet beside project plans in a workshop'},
+  retail: {src:'assets/remogm-retail-v1.webp', alt:'Illustrative shop owner reviewing store priorities on a tablet at the counter'},
+  manufacturing: {src:'assets/remogm-manufacturing-v1.webp', alt:'Illustrative manufacturing supervisor reviewing production priorities at a packing bench'}
+};
 function selectIndustry(key) {
   const entry = industries[key];
   if (!Object.hasOwn(industries,key) || !document.querySelector('#industry-title')) return;
@@ -30,10 +35,17 @@ function selectIndustry(key) {
   document.querySelector('#industry-quote').textContent = `“${entry.quote}”`;
   document.querySelector('#industry-owner').textContent = entry.owner;
   document.querySelector('#industry-cta').href = `book.html?industry=${encodeURIComponent(key)}`;
+  const scene = document.querySelector('#industry-scene');
+  const image = document.querySelector('#industry-image');
+  if (scene && image) {
+    const visual = industryScenes[key];
+    scene.hidden = !visual;
+    if (visual) { image.src = visual.src; image.alt = visual.alt; }
+  }
 }
 industryButtons.forEach(button => button.addEventListener('click', () => selectIndustry(button.dataset.industry)));
 const selectedIndustry = new URLSearchParams(window.location.search).get('industry');
-if (selectedIndustry) selectIndustry(selectedIndustry);
+selectIndustry(Object.hasOwn(industries, selectedIndustry) ? selectedIndustry : 'contractor');
 // Preparing the request never contacts a server, sends mail, or books an appointment.
 const requestForm = document.querySelector('#request-form');
 if (requestForm) {
