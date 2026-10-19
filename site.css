@@ -100,8 +100,8 @@
 .hero-stage:has(.morph-hero) .hero{min-height:748px}
 .hero-media.morph-hero{pointer-events:auto;opacity:1}
 .morph-hero::after{z-index:1;bottom:130px}
-.morph-stage{position:absolute;inset:0 0 130px;overflow:hidden;background:var(--ink)}
-.morph-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 39% 55% at 50% 48%,rgb(100 255 176 / .16) 0%,rgb(100 255 176 / .09) 42%,rgb(100 255 176 / .025) 66%,transparent 90%);opacity:.94;transform:translateX(12%) scale(.9);transform-origin:bottom center}
+.morph-stage{position:absolute;inset:0 0 130px;overflow:hidden;background:var(--ink);isolation:isolate}
+.morph-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 44% 62% at 50% 48%,rgb(100 255 176 / .36) 0%,rgb(100 255 176 / .22) 42%,rgb(100 255 176 / .075) 68%,transparent 94%);opacity:.94;transform:translateX(12%) scale(.9);transform-origin:bottom center}
 .hero-media .morph-humanoid{position:relative;z-index:1;height:100%;object-fit:cover;filter:none;opacity:.94;transform:translateX(12%) scale(.9);transform-origin:bottom center;mask-image:linear-gradient(to bottom,#000 87%,transparent 100%)}
 .morph-phone{position:absolute;z-index:2;left:8%;bottom:28px;width:260px;height:420px;transform:scale(.72);transform-origin:bottom left;border:1px solid #536b8a;border-radius:34px;padding:8px;background:#050c17;box-shadow:0 25px 70px #0007,0 0 35px #3478ff1a;overflow:hidden}
 .phone-screen{position:relative;background:linear-gradient(155deg,#10233d,#081524);border-radius:26px;width:100%;height:100%;overflow:hidden}
