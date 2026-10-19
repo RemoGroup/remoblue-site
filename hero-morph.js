@@ -6,6 +6,7 @@
   if (!figure) return;
   const stage = figure.querySelector('.morph-stage');
   const robot = figure.querySelector('.morph-humanoid');
+  const glow = figure.querySelector('.morph-glow');
   const phone = figure.querySelector('.morph-phone');
   const conversation = figure.querySelector('.phone-interface');
   const dashboard = figure.querySelector('.phone-dashboard');
@@ -87,12 +88,14 @@
       { offset: at(18000), transform: initial, opacity: 1, borderRadius: '34px' },
       { offset: at(20000), transform: initial, opacity: 1, borderRadius: '34px' }
     ]);
-    animate(robot, [
+    const robotFrames = [
       { offset: at(0), opacity: 0 }, { offset: at(3000), opacity: 0 },
       { offset: at(4500), opacity: .35 }, { offset: at(5500), opacity: .94 },
       { offset: at(15500), opacity: .94 }, { offset: at(17000), opacity: .35 },
       { offset: at(18000), opacity: 0 }, { offset: at(20000), opacity: 0 }
-    ]);
+    ];
+    animate(robot, robotFrames);
+    if (glow) animate(glow, robotFrames);
     const conversationFrames = [
       { offset: at(0), opacity: 1 }, { offset: at(3000), opacity: 1 },
       { offset: at(4200), opacity: 0 }, { offset: at(16600), opacity: 0 },
