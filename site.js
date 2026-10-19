@@ -20,8 +20,13 @@ if (menuButton && mobileNav) {
 }
 const industryButtons = document.querySelectorAll('[data-industry]');
 const industryScenes = {
+  'real-estate': {src:'assets/remogm-real-estate-v1.webp', alt:'Illustrative real estate agent reviewing property listings and an appointment planner'},
+  mortgage: {src:'assets/remogm-mortgage-v1.webp', alt:'Illustrative mortgage loan officer reviewing borrower documents beside a laptop'},
   contractor: {src:'assets/remogm-contractor-v1.webp', alt:'Illustrative contractor reviewing a tablet beside project plans in a workshop'},
+  ecommerce: {src:'assets/remogm-ecommerce-v1.webp', alt:'Illustrative ecommerce owner reviewing orders on a tablet at a packing station'},
   retail: {src:'assets/remogm-retail-v1.webp', alt:'Illustrative shop owner reviewing store priorities on a tablet at the counter'},
+  legal: {src:'assets/remogm-legal-v1.webp', alt:'Illustrative attorney organizing a client intake folder and consultation planner'},
+  accounting: {src:'assets/remogm-accounting-v1.webp', alt:'Illustrative accountant checking client receipts against a document checklist'},
   manufacturing: {src:'assets/remogm-manufacturing-v1.webp', alt:'Illustrative manufacturing supervisor reviewing production priorities at a packing bench'}
 };
 function selectIndustry(key) {
