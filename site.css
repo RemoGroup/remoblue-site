@@ -15,7 +15,7 @@
 .hero-stage .hero{position:relative;isolation:isolate;display:block;min-height:680px;padding-top:45px;padding-bottom:62px}
 .hero-stage .hero-copy{position:relative;z-index:2;width:52%;max-width:580px}
 .hero-stage .eyebrow{margin-bottom:12px;font-size:10px}
-.hero-tagline{font-family:var(--display);font-size:23px;line-height:1.4;letter-spacing:-.02em;color:#b8d3ff;margin-bottom:24px}
+.hero-tagline{font-family:var(--display);font-size:23px;font-style:italic;line-height:1.4;letter-spacing:-.02em;color:#64ffb0;margin-bottom:24px}
 .hero-stage h1{font-size:clamp(48px,4.8vw,66px)}
 .hero-stage .hero-lede{max-width:45ch;font-size:16px;line-height:1.7;margin-top:24px}
 .hero-future{font-size:14px;line-height:1.8;color:#b7c8dd;max-width:49ch;margin-top:17px}
