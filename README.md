@@ -49,3 +49,12 @@ The industry selector starts with Contractors and shows a matching scene for all
 The Technology page embeds the supplied desktop and stacked mobile architecture SVGs. `architecture.css` scopes their styling and selects the mobile composition below 1050px of diagram width. `architecture.js` provides pause/resume, honors reduced motion, and pauses animation offscreen or in background tabs. The no-JavaScript view remains still and readable. Expandable descriptions explain the public layers, owner authority, and separation between business coordination and robot controls. Editable animated and static source exports live in `assets/architecture/`.
 
 The initial assets were provided in the owner's RemoGM Google Drive folder (video V2 package and three WebP industry scenes) and attached `RemoGM_Architecture_Review_Package.zip`. Five additional industry scenes were created with the built-in image-generation tool and approved for placement by the owner on October 19. They use the same navy and warm-neutral photographic style; only size normalization and WebP encoding were applied after generation. Existing engineering progress statements remain dated October 18; development imagery will be added when actual evidence is supplied.
+
+
+## Professional expertise presentation (October 20, 2026)
+
+`/your-gm/` presents the owner-approved completed-product vision under “Consider it handled.” Seven professional roles explain ownership, judgment, and coordinated execution: executive leadership, marketing, financial oversight, operations, purchasing/inventory, customer relationships/calling, and people coordination. Sample briefings and the second-location story are illustrative presentation content, not live business activity. Professional roles describe AI expertise; licensed advice and final authority stay with the appropriate person.
+
+`capabilities.css` owns the navy/ivory/gold editorial design and the prominent homepage discovery panel. `capabilities.js` progressively enhances real role anchors with deep-link/history support and filters the locally hosted integration logo wall. Without JavaScript every role and connection remains visible. This page adds no integration adapters, customer actions, or account permissions. Logo provenance is recorded in `assets/integrations/sources.json`.
+
+Validate JS syntax, internal links and fragments, every role/filter, direct role links, mobile navigation, reduced motion, no-JS content, and desktop/mobile rendering. Publish via the existing GitHub Pages `main:/` source.
