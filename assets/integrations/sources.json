@@ -1,0 +1,258 @@
+[
+  {
+    "vendor": "Asana",
+    "asset": "asana.svg",
+    "url": "https://asana.com/brand",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/asana.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#F06A6A"
+  },
+  {
+    "vendor": "ElevenLabs",
+    "asset": "elevenlabs.svg",
+    "url": "https://elevenlabs.io/brand",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/elevenlabs.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#000000"
+  },
+  {
+    "vendor": "Gusto",
+    "asset": "gusto.svg",
+    "url": "https://gusto.com",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/gusto.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#F45D48"
+  },
+  {
+    "vendor": "HubSpot",
+    "asset": "hubspot.svg",
+    "url": "https://www.hubspot.com/style-guide",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/hubspot.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#FF7A59"
+  },
+  {
+    "vendor": "QuickBooks",
+    "asset": "quickbooks.svg",
+    "url": "https://design.intuit.com/quickbooks/brand",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/quickbooks.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#2CA01C"
+  },
+  {
+    "vendor": "Shopify",
+    "asset": "shopify.svg",
+    "url": "https://www.shopify.com/brand-assets",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/shopify.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#7AB55C"
+  },
+  {
+    "vendor": "Square",
+    "asset": "square.svg",
+    "url": "https://squareup.com",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/square.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#3E4348"
+  },
+  {
+    "vendor": "Stripe",
+    "asset": "stripe.svg",
+    "url": "https://stripe.com/newsroom/information",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/stripe.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#635BFF"
+  },
+  {
+    "vendor": "Xero",
+    "asset": "xero.svg",
+    "url": "https://www.xero.com/uk/about/media/downloads",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/xero.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#13B5EA"
+  },
+  {
+    "vendor": "Zapier",
+    "asset": "zapier.svg",
+    "url": "https://www.figma.com/file/NQFxTCE5pGR3dHZt0DkOyy/Zapier-Brand-Guidelines-%5BExternal%5D?type=design&node-id=101-9701&mode=design",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/zapier.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#FF4F00"
+  },
+  {
+    "vendor": "Zendesk",
+    "asset": "zendesk.svg",
+    "url": "https://brandland.zendesk.com",
+    "asset_url": "https://cdn.jsdelivr.net/npm/simple-icons@16.35.0/icons/zendesk.svg",
+    "source": "Simple Icons 16.35.0, maintained vendor mark",
+    "brand_color": "#03363D"
+  },
+  {
+    "vendor": "Gmail",
+    "asset": "gmail.svg",
+    "url": "https://fonts.gstatic.com/s/i/productlogos/gmail_2020q4/v8/192px.svg",
+    "asset_url": "https://fonts.gstatic.com/s/i/productlogos/gmail_2020q4/v8/192px.svg",
+    "source": "Official Google product logo"
+  },
+  {
+    "vendor": "Google Calendar",
+    "asset": "google-calendar.svg",
+    "url": "https://fonts.gstatic.com/s/i/productlogos/calendar_2020q4/v8/192px.svg",
+    "asset_url": "https://fonts.gstatic.com/s/i/productlogos/calendar_2020q4/v8/192px.svg",
+    "source": "Official Google product logo"
+  },
+  {
+    "vendor": "Google Drive",
+    "asset": "google-drive.svg",
+    "url": "https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/192px.svg",
+    "asset_url": "https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/192px.svg",
+    "source": "Official Google product logo"
+  },
+  {
+    "vendor": "Google Docs",
+    "asset": "google-docs.svg",
+    "url": "https://fonts.gstatic.com/s/i/productlogos/docs_2020q4/v1/192px.svg",
+    "asset_url": "https://fonts.gstatic.com/s/i/productlogos/docs_2020q4/v1/192px.svg",
+    "source": "Official Google product logo"
+  },
+  {
+    "vendor": "Google Sheets",
+    "asset": "google-sheets.svg",
+    "url": "https://fonts.gstatic.com/s/i/productlogos/sheets_2020q4/v8/192px.svg",
+    "asset_url": "https://fonts.gstatic.com/s/i/productlogos/sheets_2020q4/v8/192px.svg",
+    "source": "Official Google product logo"
+  },
+  {
+    "vendor": "Slack",
+    "asset": "slack.svg",
+    "url": "https://slack.com",
+    "asset_url": "https://a.slack-edge.com/9cc0056/marketing/img/nav/logo.svg",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Twilio",
+    "asset": "twilio.png",
+    "url": "https://www.twilio.com",
+    "asset_url": "https://www.twilio.com/content/dam/twilio-com/core-assets/social/apple-touch-icon.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "GoHighLevel",
+    "asset": "gohighlevel.png",
+    "url": "https://www.gohighlevel.com",
+    "asset_url": "https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/62b48689c85eccb36ca941fc.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Follow Up Boss",
+    "asset": "follow-up-boss.svg",
+    "url": "https://www.followupboss.com",
+    "asset_url": "https://cdn.prod.website-files.com/644fec6f9633da07ea1323cb/68ee843990ef42b566febc53_FUB_Full%20Color.svg",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "TaxBandits",
+    "asset": "taxbandits.png",
+    "url": "https://www.taxbandits.com",
+    "asset_url": "https://cdn.taxbandits.com/homeui/Content/Images/favicon/apple-icon-180x180.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "monday.com",
+    "asset": "monday.png",
+    "url": "https://monday.com",
+    "asset_url": "https://cdn.prod.website-files.com/656da6fea306219773d04208/65af6bd6e742d497b5f23f69_645898132bbaac20f1963919_256x256.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "DocuSign",
+    "asset": "docusign.png",
+    "url": "https://www.docusign.com",
+    "asset_url": "https://www.docusign.com/assets/images/apple-touch-icon-180x180.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "ARIVE",
+    "asset": "arive.png",
+    "url": "https://www.arive.com",
+    "asset_url": "https://cdn.prod.website-files.com/6136b3ed01d5639234a85e52/61371b63692ec12d5eb7fc8b_arive_logo_identity_256x256.png",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Browserbase",
+    "asset": "browserbase.svg",
+    "url": "https://www.browserbase.com",
+    "asset_url": "https://www.browserbase.com/favicon.svg",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "LiveAvatar",
+    "asset": "liveavatar.svg",
+    "url": "https://www.liveavatar.com",
+    "asset_url": "https://www.liveavatar.com/icons/logos/liveavatar-mark.svg",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Blotato",
+    "asset": "blotato.webp",
+    "url": "https://www.blotato.com",
+    "asset_url": "https://www.blotato.com/assets/blotato-logo.webp",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Google Analytics",
+    "asset": "google-analytics.svg",
+    "url": "https://analytics.google.com",
+    "asset_url": "https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg",
+    "source": "Official vendor website asset"
+  },
+  {
+    "vendor": "Microsoft Outlook",
+    "asset": "microsoft-outlook.svg",
+    "url": "https://github.com/microsoft/fluentui",
+    "asset_url": "https://res.cdn.office.net/files/fabric-cdn-prod_20260917.001/assets/brand-icons/product/svg/outlook_48x1.svg",
+    "source": "Official Microsoft Fluent UI CDN product icon"
+  },
+  {
+    "vendor": "Microsoft Teams",
+    "asset": "microsoft-teams.svg",
+    "url": "https://github.com/microsoft/fluentui",
+    "asset_url": "https://res.cdn.office.net/files/fabric-cdn-prod_20260917.001/assets/brand-icons/product/svg/teams_48x1.svg",
+    "source": "Official Microsoft Fluent UI CDN product icon"
+  },
+  {
+    "vendor": "Microsoft OneDrive",
+    "asset": "microsoft-onedrive.svg",
+    "url": "https://github.com/microsoft/fluentui",
+    "asset_url": "https://res.cdn.office.net/files/fabric-cdn-prod_20260917.001/assets/brand-icons/product/svg/onedrive_48x1.svg",
+    "source": "Official Microsoft Fluent UI CDN product icon"
+  },
+  {
+    "vendor": "Microsoft SharePoint",
+    "asset": "microsoft-sharepoint.svg",
+    "url": "https://github.com/microsoft/fluentui",
+    "asset_url": "https://res.cdn.office.net/files/fabric-cdn-prod_20260917.001/assets/brand-icons/product/svg/sharepoint_48x1.svg",
+    "source": "Official Microsoft Fluent UI CDN product icon"
+  },
+  {
+    "vendor": "OpenAI",
+    "asset": "openai.png",
+    "url": "https://github.com/openai",
+    "asset_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+    "source": "Official OpenAI GitHub organization avatar"
+  },
+  {
+    "vendor": "Clio",
+    "asset": "clio.png",
+    "url": "https://docs.developers.clio.com",
+    "asset_url": "https://docs.developers.clio.com/img/favicon.png",
+    "source": "Official Clio developer documentation brand icon"
+  },
+  {
+    "vendor": "Jobber",
+    "asset": "jobber.png",
+    "url": "https://github.com/GetJobber",
+    "asset_url": "https://avatars.githubusercontent.com/u/1251449?v=4",
+    "source": "Official Jobber GitHub organization avatar"
+  }
+]

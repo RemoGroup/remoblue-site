@@ -196,3 +196,6 @@
 .industry-briefing .example-caption{display:block}
 @media(max-width:800px){.demo-intro{gap:25px}.demo-story{grid-template-columns:1fr 1fr}.industry-example{padding:0}}
 @media(max-width:520px){.demo-intro{grid-template-columns:1fr;gap:22px;margin-bottom:24px}.demo-description>p{font-size:14px}.demo-film video{border-radius:8px}.demo-film figcaption{flex-direction:column;gap:4px;font-size:10px}.demo-story{gap:22px 18px;margin-top:26px}.demo-story p{font-size:12px}.demo-story span{font-size:10px}.industry-briefing{padding:20px}.industry-example blockquote{font-size:23px}.industry-detail{padding:20px}.demo-section{padding-top:48px}}
+
+/* Keep the expanded public navigation on one line before switching to the menu. */
+@media(max-width:1200px){.desktop-nav{display:none}.header-cta{margin-left:auto}.menu-toggle{display:block;margin-left:auto}}
