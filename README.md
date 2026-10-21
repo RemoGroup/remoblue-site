@@ -58,3 +58,12 @@ The initial assets were provided in the owner's RemoGM Google Drive folder (vide
 `capabilities.css` owns the navy/ivory/gold editorial design and the prominent homepage discovery panel. `capabilities.js` progressively enhances real role anchors with deep-link/history support and filters the locally hosted integration logo wall. Without JavaScript every role and connection remains visible. This page adds no integration adapters, customer actions, or account permissions. Logo provenance is recorded in `assets/integrations/sources.json`.
 
 Validate JS syntax, internal links and fragments, every role/filter, direct role links, mobile navigation, reduced motion, no-JS content, and desktop/mobile rendering. Publish via the existing GitHub Pages `main:/` source.
+
+
+## Black and gold public theme (October 20, 2026)
+
+`black-gold.css` is the shared presentation layer loaded last on every public page, including the demo request and legal documents. It establishes near-black/charcoal surfaces, a champagne/gold/bronze accent gradient, Manrope headings, and Inter body text. Legacy color variables remain compatibility aliases to the same palette; component overrides cover former ivory panels and blue accents. Vendor logos keep their original colors on pale badges within charcoal tiles for contrast.
+
+The shared emblem, favicon, and wordmark SVGs use gold facets. CSS gives the existing humanoid artwork a warm treatment, and the exterior halo is gold; image files and the approved film remain intact. Both inline architecture diagrams and their four editable SVG exports have matching gold/charcoal colors. Diagram geometry, motion timing, page copy, legal text, forms, and account behavior are preserved. Versioned theme/brand URLs refresh existing browser caches.
+
+Verify all seven public routes at phone/tablet/desktop widths, industry and professional-role selectors, integration filters, the local email draft, mobile menus, animation controls, reduced motion, no-JavaScript content, and the GitHub Pages deployment before handoff.

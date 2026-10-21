@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- RemoGM wordmark lockup (for light backgrounds). Text is live/editable; set font to "Inter Tight" (Google Fonts) or outline it before print.
-     For dark backgrounds, change #remo fill to #F5F7FB. -->
+<!-- RemoGM wordmark lockup (for light backgrounds). Text is live/editable; set font to "Manrope" (Google Fonts) or outline it before print.
+     For dark backgrounds, change #remo fill to #F4F4F5. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 80" width="660" height="160" role="img" aria-labelledby="t">
   <title id="t">RemoGM™</title>
   <defs>
     <linearGradient id="rbLeft" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1E40AF"/><stop offset="1" stop-color="#38BDF8"/>
+      <stop offset="0" stop-color="#AA7C11"/><stop offset="1" stop-color="#F3E5AB"/>
     </linearGradient>
   </defs>
   <g id="emblem" transform="translate(4 8)">
-    <path d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#1E3A8A"/>
-    <path d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#1D4ED8"/>
-    <path d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#2563EB"/>
-    <path d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#3B82F6"/>
-    <path d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#06B6D4"/>
+    <path d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#8A6410"/>
+    <path d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#B88A1B"/>
+    <path d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#D4AF37"/>
+    <path d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#E3C564"/>
+    <path d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#F3E5AB"/>
     <path d="M7.75 46 7.75 18 20.74 25.5 20.74 38.5Z" fill="url(#rbLeft)"/>
-    <path d="M7.75 18 32 4 32 19Z" fill="#0B1530" opacity=".35"/>
-    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#93C5FD" opacity=".45"/>
-    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#38BDF8" opacity=".45"/>
-    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#1E3A8A" opacity=".25"/>
+    <path d="M7.75 18 32 4 32 19Z" fill="#17150F" opacity=".35"/>
+    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#FFF4CA" opacity=".45"/>
+    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#F3E5AB" opacity=".45"/>
+    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#8A6410" opacity=".25"/>
   </g>
-  <text id="wordmark" x="80" y="55" font-family="'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.2"><tspan id="remo" fill="#0B1A3A">Remo</tspan><tspan id="blue" fill="#3478FF">GM</tspan><tspan fill="#3478FF" font-size="17" letter-spacing="0" dy="-22">™</tspan></text>
+  <text id="wordmark" x="80" y="55" font-family="'Manrope', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.2"><tspan id="remo" fill="#171719">Remo</tspan><tspan id="blue" fill="#D4AF37">GM</tspan><tspan fill="#D4AF37" font-size="17" letter-spacing="0" dy="-22">™</tspan></text>
 </svg>
