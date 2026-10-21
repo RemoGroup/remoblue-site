@@ -74,3 +74,11 @@ Verify all seven public routes at phone/tablet/desktop widths, industry and prof
 The homepage hero and the desktop/mobile primary navigation use an ivory “What your GM does” badge, visually distinct from the gold “Meet your GM” action. Every public link labeled “Meet your GM” now opens `/your-gm/`, the shared professional expertise presentation. Demo-request actions with other labels still open `book.html`, and the request form is unchanged. No avatar, voice session, or placeholder experience is added in this change. The shared theme URL is versioned so returning visitors receive the badge styling.
 
 Verify both discovery actions, keyboard focus, header layout, mobile navigation, and the existing demo-request flow before publication.
+
+## Public GM welcome (October 20, 2026)
+
+`welcome-gm.js` adds a native dialog with a dark blurred backdrop, an accessible close control, and a persistent launcher. On a first homepage visit it opens only when the app reports an available GM; dismissing it is remembered for seven days. Links marked `data-meet-gm` reopen the experience, while capability badges remain normal links to `/your-gm/`. That page also contains a permanent GM invitation.
+
+The conversation is an isolated iframe at `https://remoblue-platform.onrender.com/meet-gm.html`. It uses the app's public LiveAvatar + ElevenLabs broker, server-validated Turnstile, configured avatar choices, captions, optional microphone and typed input. The iframe receives microphone/autoplay permission and no camera permission. Exact-origin/source checks protect lifecycle messages; closing or leaving the page requests shutdown. No provider API key belongs in this static repository.
+
+Configure and activate the backend using [the public GM setup guide](https://github.com/RemoGroup/RemoBlue/blob/main/docs/PUBLIC-GM-DEMO-SETUP.md). With incomplete configuration, the automatic invitation and floating launcher stay hidden; explicit GM links show an unavailable state with browsing available. The public conversation and its avatar choices are separate from authenticated customer workspaces. Local development uses marketing port4173 and an isolated app on4174; loopback-only origin support never changes production origins.
