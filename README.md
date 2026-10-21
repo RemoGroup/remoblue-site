@@ -67,3 +67,10 @@ Validate JS syntax, internal links and fragments, every role/filter, direct role
 The shared emblem, favicon, and wordmark SVGs use gold facets. CSS gives the existing humanoid artwork a warm treatment, and the exterior halo is gold; image files and the approved film remain intact. Both inline architecture diagrams and their four editable SVG exports have matching gold/charcoal colors. Diagram geometry, motion timing, page copy, legal text, forms, and account behavior are preserved. Versioned theme/brand URLs refresh existing browser caches.
 
 Verify all seven public routes at phone/tablet/desktop widths, industry and professional-role selectors, integration filters, the local email draft, mobile menus, animation controls, reduced motion, no-JavaScript content, and the GitHub Pages deployment before handoff.
+
+
+## Capability discovery actions (October 20, 2026)
+
+The homepage hero and the desktop/mobile primary navigation use an ivory “What your GM does” badge, visually distinct from the gold “Meet your GM” action. Every public link labeled “Meet your GM” now opens `/your-gm/`, the shared professional expertise presentation. Demo-request actions with other labels still open `book.html`, and the request form is unchanged. No avatar, voice session, or placeholder experience is added in this change. The shared theme URL is versioned so returning visitors receive the badge styling.
+
+Verify both discovery actions, keyboard focus, header layout, mobile navigation, and the existing demo-request flow before publication.
