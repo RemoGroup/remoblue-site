@@ -36,6 +36,16 @@ h1 em,h2 em,h3 em,.gm-presentation h2 em,.gm-hero h1 em,.role-panel h3 em,
   box-shadow:0 5px 22px #d4af3714;transition:box-shadow .2s,border-color .2s,transform .2s;
 }
 .btn:hover,.btn-primary:hover,.gm-presentation .btn.gm-gold-btn:hover{background:var(--gold-gradient);color:#09090b;border-color:#f3e5ab;box-shadow:0 6px 28px #d4af3729;transform:translateY(-1px)}
+/* Ivory capability badges distinguish discovery from the gold Meet your GM action. */
+.btn.btn-capabilities,.desktop-nav .nav-capabilities,.mobile-nav .nav-capabilities{
+  background:#f4f0e7;color:#171719;border:1px solid #f4f0e7;border-radius:9px;
+  font-weight:700;text-decoration:none;box-shadow:0 4px 18px #0002;
+}
+.btn.btn-capabilities:hover,.desktop-nav .nav-capabilities:hover,.mobile-nav .nav-capabilities:hover{
+  background:#fffdf7;color:#09090b;border-color:#fffdf7;box-shadow:0 6px 24px #f4f0e714;
+}
+.desktop-nav .nav-capabilities{padding:10px 14px;font-size:13px;white-space:nowrap}
+.mobile-nav .nav-capabilities{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;margin:8px 0}
 .btn-ghost,.light .btn-ghost{background:transparent;color:var(--text);border-color:#454549;box-shadow:none}
 .btn-ghost:hover,.light .btn-ghost:hover{background:#202023;color:var(--gold-hi);border-color:#a18a47;box-shadow:none}
 .text-link,.back-link,.technology-discovery .text-link,.vision-layout .text-link{color:#d3c18d}
