@@ -4,21 +4,21 @@
   <title id="t">RemoGM emblem</title>
   <defs>
     <linearGradient id="rbLeft" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1E40AF"/><stop offset="1" stop-color="#38BDF8"/>
+      <stop offset="0" stop-color="#AA7C11"/><stop offset="1" stop-color="#F3E5AB"/>
     </linearGradient>
   </defs>
   <g id="facets">
-    <path id="facet-top-left" d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#1E3A8A"/>
-    <path id="facet-top-right" d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#1D4ED8"/>
-    <path id="facet-right" d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#2563EB"/>
-    <path id="facet-bottom-right" d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#3B82F6"/>
-    <path id="facet-bottom-left" d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#06B6D4"/>
+    <path id="facet-top-left" d="M7.75 18 32 4 32 19 20.74 25.5Z" fill="#8A6410"/>
+    <path id="facet-top-right" d="M32 4 56.25 18 43.26 25.5 32 19Z" fill="#B88A1B"/>
+    <path id="facet-right" d="M56.25 18 56.25 46 43.26 38.5 43.26 25.5Z" fill="#D4AF37"/>
+    <path id="facet-bottom-right" d="M56.25 46 32 60 32 45 43.26 38.5Z" fill="#E3C564"/>
+    <path id="facet-bottom-left" d="M32 60 7.75 46 20.74 38.5 32 45Z" fill="#F3E5AB"/>
     <path id="facet-left" d="M7.75 46 7.75 18 20.74 25.5 20.74 38.5Z" fill="url(#rbLeft)"/>
   </g>
   <g id="translucent-overlaps">
-    <path d="M7.75 18 32 4 32 19Z" fill="#0B1530" opacity=".35"/>
-    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#93C5FD" opacity=".45"/>
-    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#38BDF8" opacity=".45"/>
-    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#1E3A8A" opacity=".25"/>
+    <path d="M7.75 18 32 4 32 19Z" fill="#17150F" opacity=".35"/>
+    <path d="M43.26 25.5 56.25 32 43.26 38.5Z" fill="#FFF4CA" opacity=".45"/>
+    <path d="M20.74 38.5 32 45 32 60 13 49Z" fill="#F3E5AB" opacity=".45"/>
+    <path d="M56.25 46 43.26 38.5 56.25 32Z" fill="#8A6410" opacity=".25"/>
   </g>
 </svg>
