@@ -14,7 +14,7 @@
   let dismissedInMemory = false;
   const dialog = document.createElement("dialog");
   dialog.className = "gm-welcome-dialog";
-  dialog.setAttribute("aria-label", "Meet one of our GMs");
+  dialog.setAttribute("aria-label", "Meet one of our GM's");
   const close = document.createElement("button");
   close.type = "button";
   close.className = "gm-welcome-close";
